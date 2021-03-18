@@ -36,15 +36,14 @@ public class ListaProduktow implements Serializable {
         for(int i=0; i<lista.length; i++){
             nowaLista[i] = lista[i];
         }
-
         this.lista = nowaLista;
     }
+
 
     public void printOut(){
         for(int i=0; i<lista.length;i++){
             System.out.println("Element ["+i+"] :"+lista[i]);
         }
     }
-
 
 }

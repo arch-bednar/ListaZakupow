@@ -6,35 +6,19 @@ import java.io.ObjectOutputStream;
 public class Main {
     public static void main(String[] args) {
         Main klasaMain = new Main();
-
-        Produkt maslo = new Produkt("maslo", "kg", true);
-        Produkt maslo1 = new Produkt("maslo1", "kg", true);
-        Produkt maslo2 = new Produkt("maslo2", "kg", true);
-
-        Produkt[] listaProduktow = new Produkt[5];
-        listaProduktow[0] = maslo;
-        listaProduktow[1] = maslo1;
-        listaProduktow[2] = maslo2;
-
         String nazwaPliku = "produkt.save";
 
-        klasaMain.WriteObjectToFile(maslo, nazwaPliku);
-        Produkt ogorek = (Produkt) klasaMain.ReadObjectFromFile(nazwaPliku);
-        System.out.println("ogórek: " + ogorek.getName());
-
-        //teraz cala lista
-        klasaMain.WriteObjectToFile(listaProduktow, nazwaPliku);
-        Produkt[] nowaLista = (Produkt[]) klasaMain.ReadObjectFromFile(nazwaPliku);
-        System.out.println(listaProduktow[0].getName()+", "+listaProduktow[1].getName()+", "+listaProduktow[2].getName());
-
+        Produkt maslo = new Produkt("maslo", Produkt.UNIT_KG, true);
+        Produkt maslo1 = new Produkt("maslo1", Produkt.UNIT_KG, true);
+        Produkt maslo2 = new Produkt("maslo2", Produkt.UNIT_KG, true);
+        Produkt mleko = new Produkt("mleko", Produkt.UNIT_L, false);
 
         //druga wersja
         ListaProduktow listaProduktow2 = new ListaProduktow(1);
         listaProduktow2.addToList(maslo);
-        System.out.println("one: "+listaProduktow2.getItem(0).getName());
         listaProduktow2.addToList(maslo1);
         listaProduktow2.addToList(maslo2);
-        System.out.println("one: "+listaProduktow2.getItem(0).getName()+", two: "+listaProduktow2.getItem(1).getName()+", three: "+listaProduktow2.getItem(2).getName());
+        listaProduktow2.addToList(mleko);
 
         klasaMain.WriteObjectToFile(listaProduktow2, nazwaPliku);
         ListaProduktow nowaLista2 = (ListaProduktow) klasaMain.ReadObjectFromFile(nazwaPliku);

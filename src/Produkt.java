@@ -1,6 +1,10 @@
 import java.io.Serializable;
 
 public class Produkt implements Serializable {
+    public static String UNIT_KG = "kg";
+    public static String UNIT_L = "l";
+
+
     private String nazwa;
     private String jednostka;
     private boolean ulubione;
