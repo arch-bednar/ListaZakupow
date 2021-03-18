@@ -1,16 +1,16 @@
 import java.io.Serializable;
 
-public class ListaProduktow implements Serializable {
+public class ListaZakupow implements Serializable {
 
-    private Produkt[] lista;
+    private ProduktNaLiscie[] lista;
     private int index = 0;
     private int sizeIncrease = 8;
 
-    ListaProduktow(int productAmount){
-        this.lista = new Produkt[productAmount];
+    ListaZakupow(int productAmount){
+        this.lista = new ProduktNaLiscie[productAmount];
     }
 
-    public void addToList(Produkt obj){
+    public void addToList(ProduktNaLiscie obj){
         if(index < lista.length){
             lista[index] = obj;
             index++;
@@ -25,12 +25,12 @@ public class ListaProduktow implements Serializable {
         return lista.length;
     }
 
-    public Produkt getItem(int ind){
+    public ProduktNaLiscie getItem(int ind){
         return lista[ind];
     }
 
     private void increaseListSize() {
-        Produkt[] nowaLista = new Produkt[lista.length + sizeIncrease];
+        ProduktNaLiscie[] nowaLista = new ProduktNaLiscie[lista.length + sizeIncrease];
 
         //TODO: Replace manual array copy
         //Przepisanie listy

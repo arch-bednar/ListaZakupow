@@ -7,6 +7,10 @@ public class Main {
     public static void main(String[] args) {
         Main klasaMain = new Main();
 
+        //======================================================================
+        //BAZA PRODUKTOW
+        //======================================================================
+
         //nazwa pliku do którego zapiszemy bazę produktow
         String nazwaPliku = "produkt.save";
 
@@ -31,6 +35,33 @@ public class Main {
 
         //wypisanie zawartości bazy produktów
         nowaLista2.printOut();
+
+        //======================================================================
+        //PRODUKTY NA LIŚCIE ZAKUPÓW
+        //======================================================================
+        String listaNR1= "listaNR1.save";
+
+        //nowa lista zakupów
+        ListaZakupow listaZakupow1 = new ListaZakupow(1);
+
+        //produkty na tej liście
+        ProduktNaLiscie maselko = new ProduktNaLiscie(maslo, 0.5, false);
+        ProduktNaLiscie mleczko = new ProduktNaLiscie(mleko, 3, true);
+
+        //dodanie produktow do listy
+        listaZakupow1.addToList(maselko);
+        listaZakupow1.addToList(mleczko);
+
+        //zapis do pliku
+        klasaMain.WriteObjectToFile(listaZakupow1, listaNR1);
+
+        //załadowanie listy z pliku
+        ListaZakupow listaPierwsza = (ListaZakupow) klasaMain.ReadObjectFromFile(listaNR1);
+
+        //wypisanie zawartości bazy produktów
+        listaPierwsza.printOut();
+
+
     }
 
 
