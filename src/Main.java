@@ -12,7 +12,7 @@ public class Main {
         //======================================================================
 
         //nazwa pliku do którego zapiszemy bazę produktow
-        String nazwaPliku = "produkt.save";
+        String nazwaPliku = "bazaProduktow.save";
 
         //tworzę produkty do zapisu na bazie
         Produkt maslo = new Produkt("maslo", Produkt.UNIT_KG, true);
