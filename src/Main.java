@@ -5,6 +5,44 @@ import java.io.ObjectOutputStream;
 
 public class Main {
     public static void main(String[] args) {
+        AppLogic logikaAplikacji = new AppLogic();
+        //BazaProduktow bP = logikaAplikacji.getProductList();
+        logikaAplikacji.save();
+
+
+
+        
+    }
+
+
+    public void WriteObjectToFile(Object serObj, String filePath) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream(filePath);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(serObj);
+            objectOut.close();
+            System.out.println("The Object  was succesfully written to a file");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public Object ReadObjectFromFile(String filePath){
+        Object serObj = null;
+        try{
+            FileInputStream fileIn = new FileInputStream(filePath);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+            serObj = objectIn.readObject();
+            objectIn.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return serObj;
+    }
+
+
+    public void aTakieTam(){
+
         Main klasaMain = new Main();
 
         //======================================================================
@@ -88,33 +126,6 @@ public class Main {
 
         //wypisanie zawartości przepisu
         przepisNaMiodownik.printOut();
-
-    }
-
-
-    public void WriteObjectToFile(Object serObj, String filePath) {
-        try {
-            FileOutputStream fileOut = new FileOutputStream(filePath);
-            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-            objectOut.writeObject(serObj);
-            objectOut.close();
-            System.out.println("The Object  was succesfully written to a file");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public Object ReadObjectFromFile(String filePath){
-        Object serObj = null;
-        try{
-            FileInputStream fileIn = new FileInputStream(filePath);
-            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-            serObj = objectIn.readObject();
-            objectIn.close();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return serObj;
     }
 
 }

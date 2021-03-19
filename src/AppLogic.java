@@ -8,15 +8,24 @@ public class AppLogic {
     private BazaListZakupow bazaListZakupow;
     private BazaPrzepisow bazaPrzepisow;
 
+    String bazaProduktowADRES = "bazaProduktow.save";
+    String bazaListZakupowADRES = "bazaListZakupow.save";
+    String bazaPrzepisowADRES = "bazaPrzepisow.save";
+
     AppLogic(){
         loadProducts();
         loadShoppingLists();
         loadRecipes();
     }
 
+    public void save(){
+        WriteObjectToFile(bazaProduktow, bazaProduktowADRES);
+        WriteObjectToFile(bazaListZakupow, bazaListZakupowADRES);
+        WriteObjectToFile(bazaPrzepisow, bazaPrzepisowADRES);
+    }
+
     private void loadProducts() {
         //załadowanie bazy produktów z pliku
-        String bazaProduktowADRES = "bazaProduktow.save";
         bazaProduktow = (BazaProduktow) ReadObjectFromFile(bazaProduktowADRES);
 
         if (bazaProduktow == null){
@@ -32,7 +41,6 @@ public class AppLogic {
 
     private void loadShoppingLists() {
         //załadowanie bazy list zakupów
-        String bazaListZakupowADRES = "bazaListZakupow.save";
         bazaListZakupow = (BazaListZakupow) ReadObjectFromFile(bazaListZakupowADRES);
 
         if(bazaListZakupow == null){
@@ -45,7 +53,6 @@ public class AppLogic {
     }
 
     private void loadRecipes() {
-        String bazaPrzepisowADRES = "bazaPrzepisow.save";
         //załadowanie bazy przepisów
         bazaPrzepisow = (BazaPrzepisow) ReadObjectFromFile(bazaPrzepisowADRES);
 
@@ -62,7 +69,7 @@ public class AppLogic {
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(serObj);
             objectOut.close();
-            System.out.println("The Object  was succesfully written to a file");
+            System.out.println("The Object  was succesfully written to a file: "+filePath);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -76,6 +83,7 @@ public class AppLogic {
             serObj = objectIn.readObject();
             objectIn.close();
         }catch(Exception e){
+            System.out.println("Uppsi, nie znaleziono pliku!");
             e.printStackTrace();
         }
         return serObj;
