@@ -68,12 +68,12 @@ public class Main {
         String pMiodownikNR1 = "przepisMiodownik.save";
 
         //Tworzymy produkty do przepisu
-        ProduktNaLiscie pMaka = new ProduktNaLiscie(maka, 0.5);
-        ProduktNaLiscie pMaslo = new ProduktNaLiscie(maslo, 1);
-        ProduktNaLiscie pMiod = new ProduktNaLiscie(miod, 0.25);
+        ProduktWPrzepisie pMaka = new ProduktWPrzepisie(maka, 0.5);
+        ProduktWPrzepisie pMaslo = new ProduktWPrzepisie(maslo, 1);
+        ProduktWPrzepisie pMiod = new ProduktWPrzepisie(miod, 0.25);
 
         //Teraz przepis
-        ListaZakupow przepisMiodownik = new ListaZakupow(1, "Ciasto Miodownik");
+        Przepis przepisMiodownik = new Przepis(1, "Ciasto Miodownik");
 
         //Dodajemy poszczególne składniki
         przepisMiodownik.addToList(pMaka);
@@ -84,7 +84,7 @@ public class Main {
         klasaMain.WriteObjectToFile(przepisMiodownik, pMiodownikNR1);
 
         //załadowanie przepisu z pliku
-        ListaZakupow przepisNaMiodownik = (ListaZakupow) klasaMain.ReadObjectFromFile(pMiodownikNR1);
+        Przepis przepisNaMiodownik = (Przepis) klasaMain.ReadObjectFromFile(pMiodownikNR1);
 
         //wypisanie zawartości przepisu
         przepisNaMiodownik.printOut();
