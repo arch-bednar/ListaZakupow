@@ -8,12 +8,30 @@ public class Main {
         AppLogic logikaAplikacji = new AppLogic();
         BazaProduktow bP = logikaAplikacji.getProductBase();
         BazaListZakupow bLZ = logikaAplikacji.getShoppingListBase();
-     
+
+        /*
+        Produkt garmin = new Produkt("Garmin Edge 830", Produkt.UNIT_SZT, false);
+        Produkt makaTortowa = new Produkt("Mąka Tortowa", Produkt.UNIT_KG, false);
+        Produkt makaBrzeska = new Produkt("Mąka Brzeska", Produkt.UNIT_KG, false);
+        Produkt makaZiemniaczana = new Produkt("Mąka Ziemniaczana", Produkt.UNIT_KG, false);
+        bP.addToList(garmin);
+        bP.addToList(makaTortowa);
+        bP.addToList(makaBrzeska);
+        bP.addToList(makaZiemniaczana);
+
+        ListaZakupow rowerowe = new ListaZakupow(1, "Zakupy rowerowe.");
+        bLZ.addToList(rowerowe);
+
+         */
+
+        ProduktNaLiscie garm = new ProduktNaLiscie(bP.getItem(0), 1);
+        bLZ.getItem(0).addToList(garm);
+        bLZ.getItem(0).printOut();
 
 
 
         bLZ.printOut();
-        //bP.printOut();
+        bP.printOut();
         logikaAplikacji.save();
     }
 

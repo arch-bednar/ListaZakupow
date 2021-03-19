@@ -73,10 +73,11 @@ public class BazaListZakupow implements Serializable {
 
 
     public void printOut(){
-        System.out.println("Baza List Zakupów!");
+        System.out.println("\nBaza List Zakupów!");
         for(int i=0; i<lista.length;i++){
-            if(lista[i] == null)
-                System.out.println("Element ["+i+"]: "+lista[i]);
+            if(lista[i] == null){
+                //System.out.println("Element ["+i+"]: "+lista[i]);
+            }
             else
                 System.out.println("Element ["+i+"]: "+lista[i].getDescription());
         }

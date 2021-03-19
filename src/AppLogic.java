@@ -80,10 +80,10 @@ public class AppLogic {
         try{
             FileInputStream fileIn = new FileInputStream(filePath);
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-            serObj = objectIn.readObject();
+            serObj = (Object) objectIn.readObject();
             objectIn.close();
         }catch(Exception e){
-            System.out.println("Uppsi, nie znaleziono pliku!");
+            System.out.println("Upps, nie znaleziono pliku!");
             e.printStackTrace();
         }
         return serObj;

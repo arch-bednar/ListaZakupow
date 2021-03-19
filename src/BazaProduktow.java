@@ -58,9 +58,12 @@ public class BazaProduktow implements Serializable {
     }
 
     public void printOut(){
-        System.out.println("Baza Produktow!");
+        System.out.println("\nBaza Produktow!");
         for(int i=0; i<lista.length;i++){
-            System.out.println("Element ["+i+"] :"+lista[i]);
+            if(lista[i] != null){
+                System.out.println("Element ["+i+"] :"+lista[i]);
+            }
+
         }
     }
 
