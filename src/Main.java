@@ -22,17 +22,17 @@ public class Main {
         
 
         //tworzę listę bazy i dodaję produkty
-        ListaProduktow listaProduktow2 = new ListaProduktow(1);
-        listaProduktow2.addToList(maslo);
-        listaProduktow2.addToList(maka);
-        listaProduktow2.addToList(miod);
-        listaProduktow2.addToList(mleko);
+        BazaProduktow bazaProduktow2 = new BazaProduktow(1);
+        bazaProduktow2.addToList(maslo);
+        bazaProduktow2.addToList(maka);
+        bazaProduktow2.addToList(miod);
+        bazaProduktow2.addToList(mleko);
 
         //zapisuję listę produktów do pliku (to jest nasza baza produktow)
-        klasaMain.WriteObjectToFile(listaProduktow2, nazwaPliku);
+        klasaMain.WriteObjectToFile(bazaProduktow2, nazwaPliku);
 
         //załadowanie bazy z pliku
-        ListaProduktow nowaLista2 = (ListaProduktow) klasaMain.ReadObjectFromFile(nazwaPliku);
+        BazaProduktow nowaLista2 = (BazaProduktow) klasaMain.ReadObjectFromFile(nazwaPliku);
 
         //wypisanie zawartości bazy produktów
         nowaLista2.printOut();

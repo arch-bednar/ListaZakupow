@@ -1,12 +1,12 @@
 import java.io.Serializable;
 
-public class ListaProduktow implements Serializable {
+public class BazaProduktow implements Serializable {
 
     private Produkt[] lista;
     private int index = 0;
     private int sizeIncrease = 8;
 
-    ListaProduktow(int productAmount){
+    BazaProduktow(int productAmount){
         this.lista = new Produkt[productAmount];
     }
 

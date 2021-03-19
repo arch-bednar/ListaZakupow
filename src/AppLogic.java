@@ -4,7 +4,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class AppLogic {
-    private ListaProduktow bazaProduktow;
+    private BazaProduktow bazaProduktow;
     private BazaListZakupow bazaListZakupow;
     private BazaPrzepisow bazaPrzepisow;
 
@@ -17,14 +17,14 @@ public class AppLogic {
     private void loadProducts() {
         //załadowanie bazy produktów z pliku
         String bazaProduktowADRES = "bazaProduktow.save";
-        bazaProduktow = (ListaProduktow) ReadObjectFromFile(bazaProduktowADRES);
+        bazaProduktow = (BazaProduktow) ReadObjectFromFile(bazaProduktowADRES);
 
         if (bazaProduktow == null){
-            bazaProduktow = new ListaProduktow(1);
+            bazaProduktow = new BazaProduktow(1);
         }
     }
 
-    public ListaProduktow getProductList(){
+    public BazaProduktow getProductList(){
         //cała reszta komunikacji z tą bazą odbywa się już poprzez samą klasę ListaProduktow
         //baza jest względnie dobrze zabezpieczona
         return bazaProduktow;
