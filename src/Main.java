@@ -6,12 +6,12 @@ import java.io.ObjectOutputStream;
 public class Main {
     public static void main(String[] args) {
         AppLogic logikaAplikacji = new AppLogic();
-        //BazaProduktow bP = logikaAplikacji.getProductList();
+        BazaProduktow bP = logikaAplikacji.getProductList();
+        Produkt maka = new Produkt("Mąka Brzeska", Produkt.UNIT_KG, false);
+        bP.addToList(maka);
+
+        bP.printOut();
         logikaAplikacji.save();
-
-
-
-        
     }
 
 
@@ -111,7 +111,7 @@ public class Main {
         ProduktWPrzepisie pMiod = new ProduktWPrzepisie(miod, 0.25);
 
         //Teraz przepis
-        Przepis przepisMiodownik = new Przepis(1, "Ciasto Miodownik");
+        Przepis przepisMiodownik = new Przepis(1, "Ciasto Miodownik","Zagnieść i gotowe!");
 
         //Dodajemy poszczególne składniki
         przepisMiodownik.addToList(pMaka);

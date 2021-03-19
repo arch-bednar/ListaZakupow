@@ -12,15 +12,30 @@ public class BazaProduktow implements Serializable {
 
     public void addToList(Produkt obj){
         //TODO: Sprawdzanie czy produkt już znajduje się na liście
+        boolean flagaDuplikatu = false;
 
-        if(index < lista.length){
-            lista[index] = obj;
-            index++;
+        for(int i=0; i<getLength(); i++){
+            if(lista[i] != null){
+                if(lista[i].getName().equals(obj.getName())){
+                    flagaDuplikatu = true;
+                    i=getLength();
+                }
+            }
+        }
+
+        if(!flagaDuplikatu){
+            if(index < lista.length){
+                lista[index] = obj;
+                index++;
+            }else{
+                increaseListSize();
+                System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :"+lista.length);
+                lista[index] = obj;
+                index++;
+            }
+            System.out.println("Dopisano do listy! "+obj.getName());
         }else{
-            increaseListSize();
-            System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :"+lista.length);
-            lista[index] = obj;
-            index++;
+            System.out.println("Plik o nazwie "+obj.getName()+" już znajduje się w bazie!");
         }
     }
     public int getLength(){

@@ -6,12 +6,13 @@ public class Przepis implements Serializable {
     private int index = 0;
     private int sizeIncrease = 8;
     private String opis;
+    private String nazwa;
 
     Przepis(int productAmount){
         this.lista = new ProduktWPrzepisie[productAmount];
     }
 
-    Przepis(int productAmount, String opis){
+    Przepis(int productAmount, String nazwa ,String opis){
         this.lista = new ProduktWPrzepisie[productAmount];
         this.opis = opis;
     }
