@@ -5,6 +5,8 @@ import java.io.ObjectOutputStream;
 
 public class AppLogic {
     private ListaProduktow bazaProduktow;
+    private BazaListZakupow bazaListZakupow;
+    private BazaPrzepisow bazaPrzepisow;
 
     AppLogic(){
         loadProducts();
@@ -22,13 +24,34 @@ public class AppLogic {
         }
     }
 
+    public ListaProduktow getProductList(){
+        //cała reszta komunikacji z tą bazą odbywa się już poprzez samą klasę ListaProduktow
+        //baza jest względnie dobrze zabezpieczona
+        return bazaProduktow;
+    }
 
     private void loadShoppingLists() {
         //załadowanie bazy list zakupów
+        String bazaListZakupowADRES = "bazaListZakupow.save";
+        bazaListZakupow = (BazaListZakupow) ReadObjectFromFile(bazaListZakupowADRES);
+
+        if(bazaListZakupow == null){
+            bazaListZakupow = new BazaListZakupow(1);
+        }
+    }
+
+    public BazaListZakupow getShoppingListBase(){
+        return bazaListZakupow;
     }
 
     private void loadRecipes() {
+        String bazaPrzepisowADRES = "bazaPrzepisow.save";
         //załadowanie bazy przepisów
+        bazaPrzepisow = (BazaPrzepisow) ReadObjectFromFile(bazaPrzepisowADRES);
+
+        if(bazaPrzepisow == null){
+            bazaPrzepisow = new BazaPrzepisow(1);
+        }
     }
 
 

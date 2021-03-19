@@ -1,18 +1,18 @@
 import java.io.Serializable;
 
-public class Przepis implements Serializable {
+public class BazaPrzepisow implements Serializable {
 
-    private ProduktWPrzepisie[] lista;
+    private Przepis[] lista;
     private int index = 0;
     private int sizeIncrease = 8;
     private String opis;
 
-    Przepis(int productAmount){
-        this.lista = new ProduktWPrzepisie[productAmount];
+    BazaPrzepisow(int productAmount){
+        this.lista = new Przepis[productAmount];
     }
 
-    Przepis(int productAmount, String opis){
-        this.lista = new ProduktWPrzepisie[productAmount];
+    BazaPrzepisow(int productAmount, String opis){
+        this.lista = new Przepis[productAmount];
         this.opis = opis;
     }
 
@@ -24,7 +24,8 @@ public class Przepis implements Serializable {
         return this.opis;
     }
 
-    public void addToList(ProduktWPrzepisie obj){
+    public void addToList(Przepis obj){
+        //Tutaj raczej nie trzeba sprawdzać czy już jest taka lista
         if(index < lista.length){
             lista[index] = obj;
             index++;
@@ -39,12 +40,12 @@ public class Przepis implements Serializable {
         return lista.length;
     }
 
-    public ProduktWPrzepisie getItem(int ind){
+    public Przepis getItem(int ind){
         return lista[ind];
     }
 
     private void increaseListSize() {
-        ProduktWPrzepisie[] nowaLista = new ProduktWPrzepisie[lista.length + sizeIncrease];
+        Przepis[] nowaLista = new Przepis[lista.length + sizeIncrease];
 
         //TODO: Replace manual array copy
         //Przepisanie listy
@@ -54,8 +55,8 @@ public class Przepis implements Serializable {
         this.lista = nowaLista;
     }
 
+
     public void printOut(){
-        System.out.println("Przepis: " + opis);
         for(int i=0; i<lista.length;i++){
             System.out.println("Element ["+i+"] :"+lista[i]);
         }

@@ -11,6 +11,8 @@ public class ListaProduktow implements Serializable {
     }
 
     public void addToList(Produkt obj){
+        //TODO: Sprawdzanie czy produkt już znajduje się na liście
+
         if(index < lista.length){
             lista[index] = obj;
             index++;
@@ -39,7 +41,6 @@ public class ListaProduktow implements Serializable {
         }
         this.lista = nowaLista;
     }
-
 
     public void printOut(){
         for(int i=0; i<lista.length;i++){
