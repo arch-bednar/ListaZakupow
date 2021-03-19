@@ -9,7 +9,7 @@ public class Main {
         BazaProduktow bP = logikaAplikacji.getProductBase();
         BazaListZakupow bLZ = logikaAplikacji.getShoppingListBase();
 
-        /*
+        
         Produkt garmin = new Produkt("Garmin Edge 830", Produkt.UNIT_SZT, false);
         Produkt makaTortowa = new Produkt("Mąka Tortowa", Produkt.UNIT_KG, false);
         Produkt makaBrzeska = new Produkt("Mąka Brzeska", Produkt.UNIT_KG, false);
@@ -22,7 +22,6 @@ public class Main {
         ListaZakupow rowerowe = new ListaZakupow(1, "Zakupy rowerowe.");
         bLZ.addToList(rowerowe);
 
-         */
 
         ProduktNaLiscie garm = new ProduktNaLiscie(bP.getItem(0), 1);
         bLZ.getItem(0).addToList(garm);

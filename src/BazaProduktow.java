@@ -35,7 +35,7 @@ public class BazaProduktow implements Serializable {
             }
             System.out.println("Dopisano do listy! "+obj.getName());
         }else{
-            System.out.println("Plik o nazwie "+obj.getName()+" już znajduje się w bazie!");
+            System.out.println("Plik o nazwie "+obj.getName()+" już znajduje się w Bazie Produktów!");
         }
     }
     public int getLength(){
