@@ -5,9 +5,23 @@ public class ListaZakupow implements Serializable {
     private ProduktNaLiscie[] lista;
     private int index = 0;
     private int sizeIncrease = 8;
+    private String opis;
 
     ListaZakupow(int productAmount){
         this.lista = new ProduktNaLiscie[productAmount];
+    }
+
+    ListaZakupow(int productAmount, String opis){
+        this.lista = new ProduktNaLiscie[productAmount];
+        this.opis = opis;
+    }
+
+    public void setDescripion(String desc){
+        this.opis=desc;
+    }
+
+    public String getDescription(){
+        return this.opis;
     }
 
     public void addToList(ProduktNaLiscie obj){

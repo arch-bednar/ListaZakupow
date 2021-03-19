@@ -11,6 +11,11 @@ public class ProduktNaLiscie implements Serializable {
         this.wybrane = wybrane;
     }
 
+    ProduktNaLiscie(Produkt produkt, double ilosc){
+        this.produkt = produkt;
+        this.ilosc = ilosc;
+    }
+
     public String toString() {
         return "Produkt: "+produkt.getName()+", jednostka: "+produkt.getUnit()+", ilosc: "+ilosc;
     }

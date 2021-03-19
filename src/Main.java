@@ -16,15 +16,16 @@ public class Main {
 
         //tworzę produkty do zapisu na bazie
         Produkt maslo = new Produkt("maslo", Produkt.UNIT_KG, true);
-        Produkt maslo1 = new Produkt("maslo1", Produkt.UNIT_KG, true);
-        Produkt maslo2 = new Produkt("maslo2", Produkt.UNIT_KG, true);
+        Produkt maka = new Produkt("mąka", Produkt.UNIT_KG, true);
+        Produkt miod = new Produkt("miód", Produkt.UNIT_KG, true);
         Produkt mleko = new Produkt("mleko", Produkt.UNIT_L, false);
+        
 
         //tworzę listę bazy i dodaję produkty
         ListaProduktow listaProduktow2 = new ListaProduktow(1);
         listaProduktow2.addToList(maslo);
-        listaProduktow2.addToList(maslo1);
-        listaProduktow2.addToList(maslo2);
+        listaProduktow2.addToList(maka);
+        listaProduktow2.addToList(miod);
         listaProduktow2.addToList(mleko);
 
         //zapisuję listę produktów do pliku (to jest nasza baza produktow)
@@ -58,9 +59,35 @@ public class Main {
         //załadowanie listy z pliku
         ListaZakupow listaPierwsza = (ListaZakupow) klasaMain.ReadObjectFromFile(listaNR1);
 
-        //wypisanie zawartości bazy produktów
+        //wypisanie listy zakupów
         listaPierwsza.printOut();
 
+        //======================================================================
+        //PRZEPISY
+        //======================================================================
+        String pMiodownikNR1 = "przepisMiodownik.save";
+
+        //Tworzymy produkty do przepisu
+        ProduktNaLiscie pMaka = new ProduktNaLiscie(maka, 0.5);
+        ProduktNaLiscie pMaslo = new ProduktNaLiscie(maslo, 1);
+        ProduktNaLiscie pMiod = new ProduktNaLiscie(miod, 0.25);
+
+        //Teraz przepis
+        ListaZakupow przepisMiodownik = new ListaZakupow(1, "Ciasto Miodownik");
+
+        //Dodajemy poszczególne składniki
+        przepisMiodownik.addToList(pMaka);
+        przepisMiodownik.addToList(pMaslo);
+        przepisMiodownik.addToList(pMiod);
+
+        //zapis do pliku
+        klasaMain.WriteObjectToFile(przepisMiodownik, pMiodownikNR1);
+
+        //załadowanie przepisu z pliku
+        ListaZakupow przepisNaMiodownik = (ListaZakupow) klasaMain.ReadObjectFromFile(pMiodownikNR1);
+
+        //wypisanie zawartości przepisu
+        przepisNaMiodownik.printOut();
 
     }
 
