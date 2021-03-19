@@ -6,11 +6,14 @@ import java.io.ObjectOutputStream;
 public class Main {
     public static void main(String[] args) {
         AppLogic logikaAplikacji = new AppLogic();
-        BazaProduktow bP = logikaAplikacji.getProductList();
-        Produkt maka = new Produkt("Mąka Brzeska", Produkt.UNIT_KG, false);
-        bP.addToList(maka);
+        BazaProduktow bP = logikaAplikacji.getProductBase();
+        BazaListZakupow bLZ = logikaAplikacji.getShoppingListBase();
+     
 
-        bP.printOut();
+
+
+        bLZ.printOut();
+        //bP.printOut();
         logikaAplikacji.save();
     }
 

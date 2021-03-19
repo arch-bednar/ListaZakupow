@@ -25,15 +25,31 @@ public class BazaListZakupow implements Serializable {
     }
 
     public void addToList(ListaZakupow obj){
-        //Tutaj raczej nie trzeba sprawdzać czy już jest taka lista
-        if(index < lista.length){
-            lista[index] = obj;
-            index++;
+        //TODO: Sprawdzanie czy produkt już znajduje się na liście
+        boolean flagaDuplikatu = false;
+
+        for(int i=0; i<getLength(); i++){
+            if(lista[i] != null){
+                if(lista[i].getDescription().equals(obj.getDescription())){
+                    flagaDuplikatu = true;
+                    i=getLength();
+                }
+            }
+        }
+
+        if(!flagaDuplikatu){
+            if(index < lista.length){
+                lista[index] = obj;
+                index++;
+            }else{
+                increaseListSize();
+                System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :"+lista.length);
+                lista[index] = obj;
+                index++;
+            }
+            System.out.println("Dopisano do listy! "+obj.getDescription());
         }else{
-            increaseListSize();
-            System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :"+lista.length);
-            lista[index] = obj;
-            index++;
+            System.out.println("Plik o nazwie "+obj.getDescription()+" już znajduje się w bazie!");
         }
     }
     public int getLength(){
@@ -57,8 +73,12 @@ public class BazaListZakupow implements Serializable {
 
 
     public void printOut(){
+        System.out.println("Baza List Zakupów!");
         for(int i=0; i<lista.length;i++){
-            System.out.println("Element ["+i+"] :"+lista[i]);
+            if(lista[i] == null)
+                System.out.println("Element ["+i+"]: "+lista[i]);
+            else
+                System.out.println("Element ["+i+"]: "+lista[i].getDescription());
         }
     }
 

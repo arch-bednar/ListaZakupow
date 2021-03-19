@@ -33,7 +33,7 @@ public class AppLogic {
         }
     }
 
-    public BazaProduktow getProductList(){
+    public BazaProduktow getProductBase(){
         //cała reszta komunikacji z tą bazą odbywa się już poprzez samą klasę ListaProduktow
         //baza jest względnie dobrze zabezpieczona
         return bazaProduktow;

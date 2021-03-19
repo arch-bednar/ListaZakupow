@@ -57,6 +57,7 @@ public class BazaPrzepisow implements Serializable {
 
 
     public void printOut(){
+        System.out.println("Baza Przepisow!");
         for(int i=0; i<lista.length;i++){
             System.out.println("Element ["+i+"] :"+lista[i]);
         }
