@@ -15,6 +15,7 @@ public class Przepis implements Serializable {
     Przepis(int productAmount, String nazwa ,String opis){
         this.lista = new ProduktWPrzepisie[productAmount];
         this.opis = opis;
+        this.nazwa = nazwa;
     }
 
     public void setDescripion(String desc){
