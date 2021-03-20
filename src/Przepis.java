@@ -22,7 +22,7 @@ public class Przepis implements Serializable {
     }
 
     public String getDescription(){
-        return this.opis;
+        return this.nazwa;
     }
 
     public void addToList(ProduktWPrzepisie obj){

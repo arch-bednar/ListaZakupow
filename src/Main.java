@@ -8,8 +8,9 @@ public class Main {
         AppLogic logikaAplikacji = new AppLogic();
         BazaProduktow bP = logikaAplikacji.getProductBase();
         BazaListZakupow bLZ = logikaAplikacji.getShoppingListBase();
+        BazaPrzepisow bPZ = logikaAplikacji.getRecipesBase();
 
-        
+        /*
         Produkt garmin = new Produkt("Garmin Edge 830", Produkt.UNIT_SZT, false);
         Produkt makaTortowa = new Produkt("Mąka Tortowa", Produkt.UNIT_KG, false);
         Produkt makaBrzeska = new Produkt("Mąka Brzeska", Produkt.UNIT_KG, false);
@@ -27,8 +28,24 @@ public class Main {
         bLZ.getItem(0).addToList(garm);
         bLZ.getItem(0).printOut();
 
+        */
 
+        Przepis udanyTrail = new Przepis(1,"Udany trail", "Ohh Fox!");
+        Produkt opona = new Produkt("Continental Race King", Produkt.UNIT_SZT, false);
+        ProduktWPrzepisie opony = new ProduktWPrzepisie(opona, 2);
 
+        Produkt pozycyjneT = new Produkt("Lezyne Strip Drive Pro 300", Produkt.UNIT_SZT, false);
+        ProduktWPrzepisie lezyneTyl = new ProduktWPrzepisie(pozycyjneT, 1, false);
+
+        bP.addToList(opona);
+        bP.addToList(pozycyjneT);
+
+        udanyTrail.addToList(opony);
+        udanyTrail.addToList(lezyneTyl);
+
+        bPZ.addToList(udanyTrail);
+
+        bPZ.printOut();
         bLZ.printOut();
         bP.printOut();
         logikaAplikacji.save();

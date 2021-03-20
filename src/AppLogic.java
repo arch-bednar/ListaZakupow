@@ -52,6 +52,7 @@ public class AppLogic {
         return bazaListZakupow;
     }
 
+
     private void loadRecipes() {
         //załadowanie bazy przepisów
         bazaPrzepisow = (BazaPrzepisow) ReadObjectFromFile(bazaPrzepisowADRES);
@@ -59,6 +60,10 @@ public class AppLogic {
         if(bazaPrzepisow == null){
             bazaPrzepisow = new BazaPrzepisow(1);
         }
+    }
+
+    public BazaPrzepisow getRecipesBase(){
+        return bazaPrzepisow;
     }
 
 
