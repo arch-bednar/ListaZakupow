@@ -31,6 +31,9 @@ public class Main {
         */
 
 
+
+        /*
+
         Przepis udanyTrail = new Przepis(1,"Udany trail", "Ohh Fox!");
         Produkt opona = new Produkt("Continental Race King", Produkt.UNIT_SZT, false);
         ProduktWPrzepisie opony = new ProduktWPrzepisie(opona, 2);
@@ -44,10 +47,18 @@ public class Main {
         udanyTrail.addToList(opony);
         udanyTrail.addToList(lezyneTyl);
 
-
         bPZ.addToList(udanyTrail);
 
-        bPZ.printOut();
+        */
+        //bPZ.getItem(0).printOut();
+        bLZ.getItem(0).printOut();
+
+        bLZ.getItem(0).addPrzepis(bPZ.getItem(0));
+
+        bLZ.getItem(0).printOut();
+
+
+        //bPZ.printOut();
         //bLZ.printOut();
         //bP.printOut();
         logikaAplikacji.save();

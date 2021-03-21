@@ -90,13 +90,13 @@ public class ListaZakupow implements Serializable {
                     index++;
                 } else {
                     increaseListSize();
-                    System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :" + lista.length);
+                    System.out.println("ZWIĘKSZONO ROZMIAR LISTY ZAKUPÓW! :" + lista.length);
                     lista[index] = obj2;
                     index++;
                 }
-                System.out.println("Dopisano produkt do listy! " + obj.getDescription());
+                System.out.println("Dopisano produkt do listy ZAKUPÓW! " + obj.getDescription());
             } else {
-                System.out.println("Produkt znajduje się już na liście!");
+                System.out.println("Produkt znajduje się już na liście ZAKUPÓW!");
             }
         }
     }

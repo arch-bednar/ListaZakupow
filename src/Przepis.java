@@ -27,6 +27,7 @@ public class Przepis implements Serializable {
     }
 
     public void addToList(ProduktWPrzepisie obj){
+        //TODO: NAPRAWIĆ DUPLIKATY
         if(index < lista.length){
             lista[index] = obj;
             index++;
@@ -57,9 +58,10 @@ public class Przepis implements Serializable {
     }
 
     public void printOut(){
-        System.out.println("Przepis: " + opis);
+        System.out.println("Przepis: " + getDescription());
         for(int i=0; i<lista.length;i++){
-            System.out.println("Element ["+i+"] :"+lista[i]);
+            if(lista[i] != null)
+                System.out.println("Element ["+i+"] :"+lista[i]);
         }
     }
 
