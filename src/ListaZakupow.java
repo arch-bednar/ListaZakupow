@@ -72,32 +72,40 @@ public class ListaZakupow implements Serializable {
     }
     public  void addPrzepis(Przepis obj){
         boolean flagaDuplikatu = false;
+
+
         for (int j=0; j<obj.getLength();j++) {
-            for (int i = 0; i < getLength(); i++) {
-                if (lista[i] != null) {
-                    if (lista[i].produkt.nazwa.equals(obj.lista[i].produkt.nazwa)) {
-                        flagaDuplikatu = true;
-                        lista[i].setAmount(lista[i].getAmount() + obj.lista[i].getAmount());
-                        i = getLength();
+            if(obj.lista[j] != null) {
+
+
+                for (int i = 0; i < getLength(); i++) {
+                    if ((lista[i] != null)) {
+
+                        if (lista[i].produkt.nazwa.equals(obj.lista[j].produkt.nazwa)) {
+                            flagaDuplikatu = true;
+                            lista[i].setAmount(lista[i].getAmount() + obj.lista[j].getAmount());
+                            i = getLength();
+                        }
                     }
+                }
+
+                if (!flagaDuplikatu) {
+                    ProduktNaLiscie obj2 = new ProduktNaLiscie(obj.lista[j].produkt, obj.lista[j].ilosc);
+                    if (index < lista.length) {
+                        lista[index] = obj2;
+                        index++;
+                    } else {
+                        increaseListSize();
+                        System.out.println("ZWIĘKSZONO ROZMIAR LISTY ZAKUPÓW! :" + lista.length);
+                        lista[index] = obj2;
+                        index++;
+                    }
+                    System.out.println("Dopisano produkt do listy ZAKUPÓW! " + getDescription());
+                } else {
+                    System.out.println("Produkt znajduje się już na liście ZAKUPÓW!");
                 }
             }
 
-            if (!flagaDuplikatu) {
-                ProduktNaLiscie obj2 = new ProduktNaLiscie(obj.lista[j].produkt,obj.lista[j].ilosc);
-                if (index < lista.length) {
-                    lista[index] = obj2;
-                    index++;
-                } else {
-                    increaseListSize();
-                    System.out.println("ZWIĘKSZONO ROZMIAR LISTY ZAKUPÓW! :" + lista.length);
-                    lista[index] = obj2;
-                    index++;
-                }
-                System.out.println("Dopisano produkt do listy ZAKUPÓW! " + obj.getDescription());
-            } else {
-                System.out.println("Produkt znajduje się już na liście ZAKUPÓW!");
-            }
         }
     }
     private  void removeElement(int index){
