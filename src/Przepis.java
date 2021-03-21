@@ -2,7 +2,7 @@ import java.io.Serializable;
 
 public class Przepis implements Serializable {
 
-    private ProduktWPrzepisie[] lista;
+    public ProduktWPrzepisie[] lista;
     private int index = 0;
     private int sizeIncrease = 8;
     private String opis;

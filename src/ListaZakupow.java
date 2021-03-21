@@ -6,7 +6,6 @@ public class ListaZakupow implements Serializable {
     private int index = 0;
     private int sizeIncrease = 8;
     private String opis;
-
     ListaZakupow(int productAmount){
         this.lista = new ProduktNaLiscie[productAmount];
     }
@@ -30,7 +29,7 @@ public class ListaZakupow implements Serializable {
 
         for(int i=0; i<getLength(); i++){
             if(lista[i] != null){
-                if(lista[i].getDescription().equals(obj.getDescription())){
+                if(lista[i].produkt.nazwa.equals(obj.produkt.nazwa)){
                     flagaDuplikatu = true;
                     lista[i].setAmount(lista[i].getAmount() + obj.getAmount());
                     i=getLength();
@@ -71,7 +70,54 @@ public class ListaZakupow implements Serializable {
         }
         this.lista = nowaLista;
     }
+    public  void addPrzepis(Przepis obj){
+        boolean flagaDuplikatu = false;
+        for (int j=0; j<obj.getLength();j++) {
+            for (int i = 0; i < getLength(); i++) {
+                if (lista[i] != null) {
+                    if (lista[i].produkt.nazwa.equals(obj.lista[i].produkt.nazwa)) {
+                        flagaDuplikatu = true;
+                        lista[i].setAmount(lista[i].getAmount() + obj.lista[i].getAmount());
+                        i = getLength();
+                    }
+                }
+            }
 
+            if (!flagaDuplikatu) {
+                ProduktNaLiscie obj2 = new ProduktNaLiscie(obj.lista[j].produkt,obj.lista[j].ilosc);
+                if (index < lista.length) {
+                    lista[index] = obj2;
+                    index++;
+                } else {
+                    increaseListSize();
+                    System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :" + lista.length);
+                    lista[index] = obj2;
+                    index++;
+                }
+                System.out.println("Dopisano produkt do listy! " + obj.getDescription());
+            } else {
+                System.out.println("Produkt znajduje się już na liście!");
+            }
+        }
+    }
+    private  void removeElement(int index){
+        ProduktNaLiscie[] nowaLista = new ProduktNaLiscie[lista.length-1];
+        //Przepisanie listy
+        for(int i=0,k=0; i<lista.length; i++){
+            if (i==index){
+                continue;
+            }
+            nowaLista[k++] = lista[i];
+        }
+        this.lista = nowaLista;
+    }
+    public void koniecZakupów(){
+        for (int i=0;i<getLength();i++){
+            if (lista[i].wybrane){
+                removeElement(i);
+            }
+        }
+    }
 
     public void printOut(){
         System.out.println("\nLista zakupów "+opis);

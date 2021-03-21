@@ -1,9 +1,9 @@
 import java.io.Serializable;
 
 public class ProduktNaLiscie implements Serializable {
-    private Produkt produkt;
-    private double ilosc;
-    private boolean wybrane;
+    public Produkt produkt;
+    public double ilosc;
+    public boolean wybrane;
 
     ProduktNaLiscie(Produkt produkt, double ilosc, boolean wybrane){
         this.produkt = produkt;
