@@ -6,7 +6,7 @@ public class Produkt implements Serializable {
     public static String UNIT_SZT = "szt.";
 
 
-    public String nazwa;
+    private String nazwa;
     private String jednostka;
     private boolean ulubione;
 

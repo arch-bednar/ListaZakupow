@@ -29,7 +29,7 @@ public class ListaZakupow implements Serializable {
 
         for(int i=0; i<getLength(); i++){
             if(lista[i] != null){
-                if(lista[i].produkt.nazwa.equals(obj.produkt.nazwa)){
+                if(lista[i].produkt.getName().equals(obj.produkt.getName())){
                     flagaDuplikatu = true;
                     lista[i].setAmount(lista[i].getAmount() + obj.getAmount());
                     i=getLength();
@@ -81,7 +81,7 @@ public class ListaZakupow implements Serializable {
                 for (int i = 0; i < getLength(); i++) {
                     if ((lista[i] != null)) {
 
-                        if (lista[i].produkt.nazwa.equals(obj.lista[j].produkt.nazwa)) {
+                        if (lista[i].produkt.getName().equals(obj.lista[j].getName())) {
                             flagaDuplikatu = true;
                             lista[i].setAmount(lista[i].getAmount() + obj.lista[j].getAmount());
                             i = getLength();
@@ -90,7 +90,7 @@ public class ListaZakupow implements Serializable {
                 }
 
                 if (!flagaDuplikatu) {
-                    ProduktNaLiscie obj2 = new ProduktNaLiscie(obj.lista[j].produkt, obj.lista[j].ilosc);
+                    ProduktNaLiscie obj2 = new ProduktNaLiscie(obj.lista[j].getProdukt(), obj.lista[j].getAmount());
                     if (index < lista.length) {
                         lista[index] = obj2;
                         index++;

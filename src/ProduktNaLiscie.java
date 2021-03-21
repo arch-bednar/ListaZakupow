@@ -27,7 +27,9 @@ public class ProduktNaLiscie implements Serializable {
     public void setAmount(double a){
         ilosc = a;
     }
-
+    public String getName(){
+        return produkt.getName();
+    }
     public String getDescription() {
         return produkt.getName();
     }
