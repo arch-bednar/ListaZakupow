@@ -33,6 +33,19 @@ public class EkranGlowny extends AppCompatActivity {
             }
         });
 
+        buttonListyZakupow = (Button) findViewById(R.id.listy);
+        buttonListyZakupow.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openEkranListProduktow();
+            }
+        } );
+
+    }
+
+    private void openEkranListProduktow() {
+        Intent intent = new Intent(this, EkranListZakupow.class);
+        startActivity(intent);
     }
 
     private void openEkranPrzepisow() {
