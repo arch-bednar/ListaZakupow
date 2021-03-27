@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class EkranProduktow extends AppCompatActivity {
-    private Button back;
+    private Button back, add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,20 @@ public class EkranProduktow extends AppCompatActivity {
                 backToMain();
             }
         });
+
+        add = (Button) findViewById(R.id.addProduct);
+
+        add.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                addNewProduct();
+            }
+        });
+    }
+
+    private void addNewProduct() {
+        Intent intent = new Intent(this, DodajProdukt.class);
+        startActivity(intent);
     }
 
     private void backToMain() {
