@@ -11,7 +11,6 @@ import android.widget.Button;
 public class EkranGlowny extends AppCompatActivity {
 
     private Button buttonProdukty, buttonPrzepisy, buttonListyZakupow;
-    //ZMIENNA
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +33,6 @@ public class EkranGlowny extends AppCompatActivity {
             }
         });
 
-        buttonListyZakupow = (Button) findViewById(R.id.listy);
-        buttonListyZakupow.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                openEkranListProduktow();
-            }
-        } );
-        //TU ŁADUJĘ BAZĘ
-    }
-
-    private void openEkranListProduktow() {
-        Intent intent = new Intent(this, EkranListZakupow.class);
-
-        startActivity(intent);
     }
 
     private void openEkranPrzepisow() {

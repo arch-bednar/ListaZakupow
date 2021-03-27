@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity2Activity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".EkranListZakupow"></activity>
+        <activity android:name=".EkranPrzepisow" />
+        <activity android:name=".EkranProduktow" />
+        <activity android:name=".EkranGlowny">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
