@@ -16,6 +16,8 @@ public class EkranProduktow extends AppCompatActivity {
     private RecyclerView recyclexd;
     private LinearLayoutManager layoutManager;
     private CustomAdapter adapter;
+    //int a;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,6 @@ public class EkranProduktow extends AppCompatActivity {
         adapter = new CustomAdapter(data,this);
         recyclexd.setLayoutManager(layoutManager);
         recyclexd.setAdapter(adapter);
-
     }
 
     private void addNewProduct() {
