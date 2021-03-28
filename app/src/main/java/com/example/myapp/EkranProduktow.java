@@ -1,4 +1,5 @@
 package com.example.myapp;
+import com.example.myapp.logic.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,7 +17,8 @@ public class EkranProduktow extends AppCompatActivity {
     private RecyclerView recyclexd;
     private LinearLayoutManager layoutManager;
     private CustomAdapter adapter;
-    //int a;
+    public AppLogic logic;
+
 
 
     @Override
@@ -41,15 +43,24 @@ public class EkranProduktow extends AppCompatActivity {
             }
         });
 
-
         recyclexd = (RecyclerView) findViewById(R.id.recycleXD);
+
+        Intent intent = getIntent();
+        logic = (AppLogic) intent.getSerializableExtra(EkranGlowny.LOGIKA);
+        System.out.println("Ekran Produktow");
+        logic.getProductBase().printOut();
+
+        BazaProduktow data = logic.getProductBase();
+
+
+        /*
         ArrayList<String> data = new ArrayList<>();
         data.add("raz");
         data.add("dwa");
         data.add("trzy");
         data.add("cztery");
         data.add("piec");
-        data.add("szesc");
+        data.add("szesc"); */
 
 
         recyclexd.setHasFixedSize(true);
@@ -57,10 +68,15 @@ public class EkranProduktow extends AppCompatActivity {
         adapter = new CustomAdapter(data,this);
         recyclexd.setLayoutManager(layoutManager);
         recyclexd.setAdapter(adapter);
+
+
+
+
     }
 
     private void addNewProduct() {
         Intent intent = new Intent(this, DodajProdukt.class);
+
         startActivity(intent);
     }
 

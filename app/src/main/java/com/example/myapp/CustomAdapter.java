@@ -25,12 +25,18 @@ import java.util.ArrayList;
         import androidx.annotation.NonNull;
         import androidx.recyclerview.widget.RecyclerView;
 
-        import java.util.ArrayList;
+import com.example.myapp.logic.BazaProduktow;
+import com.example.myapp.logic.Produkt;
+
+import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomAdapterViewHolder> {
-    ArrayList<String> data;
+    //ArrayList<String> data;
+
+    BazaProduktow data;
+
     Context context;
-    public CustomAdapter(ArrayList data, Context context){
+    public CustomAdapter(BazaProduktow data, Context context){
         this.data = data;
         this.context = context;
     }
@@ -43,16 +49,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomAdap
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapterViewHolder holder, final int position) {
-        holder.textView.setText(data.get(position));
+        //holder.textView.setText(data.get(position));
+        holder.textView.setText(data.getItemName(position));
 
         holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
                 context = compoundButton.getContext();
                 if (bChecked) {
-                    Toast.makeText(context, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
+                    //Toast.makeText(context, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
+                    Toast.makeText(context, data.getItemName(position)+", ID: "+position, Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(context, data.get(position)+"Unchecked", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, data.getItemName(position)+"Unchecked", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -62,14 +70,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,data.getItemName(position),Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        //return data.size();
+        return data.getItemCount();
     }
 
     public static class CustomAdapterViewHolder extends RecyclerView.ViewHolder{
