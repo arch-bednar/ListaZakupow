@@ -83,7 +83,7 @@ public class AppLogic implements Serializable {
             System.out.println("\n\n\n\n\n\n\nThe Object  was succesfully written to a filePATH: "+file+", DIR: "+directory);
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.out.println("Błąd zapisu");
+            System.out.println("\n\n\n\n\n Błąd zapisu");
         }
     }
     public Object ReadObjectFromFile(String filePath){

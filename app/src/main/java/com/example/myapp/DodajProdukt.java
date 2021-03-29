@@ -10,12 +10,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.myapp.logic.AppLogic;
+import com.example.myapp.logic.BazaProduktow;
+import com.example.myapp.logic.Produkt;
+
+import java.io.File;
+
 
 public class DodajProdukt extends AppCompatActivity {
     Button back, save;
     Spinner dropdown;
     String[] items;
     EditText text;
+    public AppLogic logic;
+    private File directory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +54,18 @@ public class DodajProdukt extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
-
+        directory  = getFilesDir();
+        logic = new AppLogic(directory);
         text = (EditText) findViewById(R.id.nazwaProduktu);
 
     }
 
     private void saveNewProduct() {
+        BazaProduktow bP = logic.getProductBase();
         System.out.println("#####################################################\n              DODANO PRODUKT!\n     ");
         System.out.println(text.getText()+"  "+items[(int) dropdown.getSelectedItemId()] );
-
+        bP.addToList(new Produkt(text.getText().toString(),items[(int) dropdown.getSelectedItemId()],false));
+        logic.save();
         backToProducts();
     }
 

@@ -26,7 +26,7 @@ public class EkranGlowny extends AppCompatActivity {
         logic = new AppLogic(directory);
         //System.out.println("Ekran Główny");
         //logic.getProductBase().printOut();
-        //startBase();
+        startBase();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
