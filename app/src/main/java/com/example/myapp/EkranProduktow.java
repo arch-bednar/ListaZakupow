@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class EkranProduktow extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class EkranProduktow extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
     private CustomAdapter2 adapter;
     public AppLogic logic;
+    private File directory;
 
 
 
@@ -45,8 +47,10 @@ public class EkranProduktow extends AppCompatActivity {
 
         recyclexd = (RecyclerView) findViewById(R.id.recycleXD);
 
-        Intent intent = getIntent();
-        logic = (AppLogic) intent.getSerializableExtra(EkranGlowny.LOGIKA);
+        //Intent intent = getIntent();
+        //logic = (AppLogic) intent.getSerializableExtra(EkranGlowny.LOGIKA);
+        directory  = getFilesDir();
+        logic = new AppLogic(directory);
         System.out.println("Ekran Produktow");
         logic.getProductBase().printOut();
 
