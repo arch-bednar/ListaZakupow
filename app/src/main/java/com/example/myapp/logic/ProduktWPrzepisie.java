@@ -29,4 +29,8 @@ public class ProduktWPrzepisie implements Serializable {
     public void setAmount(double a){
         ilosc = a;
     }
+
+    public String getName() {
+        return produkt.getName();
+    }
 }

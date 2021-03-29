@@ -46,6 +46,10 @@ public class Przepis implements Serializable {
 
     }
 
+    public String getItemName(int index){
+        return getItem(index).getName();
+    }
+
     public int getLength(){
         return lista.length;
     }
@@ -73,4 +77,7 @@ public class Przepis implements Serializable {
         }
     }
 
+    public int getItemCount() {
+        return index;
+    }
 }

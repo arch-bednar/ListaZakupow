@@ -29,18 +29,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapp.logic.BazaProduktow;
 import com.example.myapp.logic.BazaPrzepisow;
 import com.example.myapp.logic.Produkt;
+import com.example.myapp.logic.Przepis;
 
 import java.util.ArrayList;
 
-public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAdapterViewHolder> {
+public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecipe.CustomAdapterViewHolder> {
     //ArrayList<String> data;
 
-    BazaPrzepisow data;
+    Przepis data;
     public static final String recipeID = "XD";
 
 
     Context context;
-    public CustomAdapter3(BazaPrzepisow data, Context context){
+    public CustomAdapterRecipe(Przepis data, Context context){
         this.data = data;
         this.context = context;
     }
@@ -76,15 +77,15 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
             public void onClick(View v) {
                 //Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
                 //Toast.makeText(context,"XDDDD: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
-                openRecipeActivity(position);
+                openRecipeProduct(position);
             }
         });
     }
 
-    private void openRecipeActivity(int index) {
-        Intent intent = new Intent(context ,EkranPrzepisu.class);
-        intent.putExtra(recipeID, index);
-        context.startActivity(intent);
+    private void openRecipeProduct(int index) {
+        //Intent intent = new Intent(context ,EkranPrzepisu.class);
+        //intent.putExtra(recipeID, index);
+        //context.startActivity(intent);
     }
 
     @Override
