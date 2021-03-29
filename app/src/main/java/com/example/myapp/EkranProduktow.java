@@ -16,7 +16,7 @@ public class EkranProduktow extends AppCompatActivity {
     private Button back, add;
     private RecyclerView recyclexd;
     private LinearLayoutManager layoutManager;
-    private CustomAdapter adapter;
+    private CustomAdapter2 adapter;
     public AppLogic logic;
 
 
@@ -65,7 +65,7 @@ public class EkranProduktow extends AppCompatActivity {
 
         recyclexd.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CustomAdapter(data,this);
+        adapter = new CustomAdapter2(data,this);
         recyclexd.setLayoutManager(layoutManager);
         recyclexd.setAdapter(adapter);
 
