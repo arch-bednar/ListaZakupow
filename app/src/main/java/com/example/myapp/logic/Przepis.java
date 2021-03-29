@@ -8,6 +8,7 @@ public class Przepis implements Serializable {
     private int sizeIncrease = 8;
     private String opis;
     private String nazwa;
+    private int itemCount =0;
 
     Przepis(int productAmount){
         this.lista = new ProduktWPrzepisie[productAmount];
@@ -27,6 +28,10 @@ public class Przepis implements Serializable {
         return this.nazwa;
     }
 
+    public String getName(){
+        return this.nazwa;
+    }
+
     public void addToList(ProduktWPrzepisie obj){
         //TODO: NAPRAWIĆ DUPLIKATY
         if(index < lista.length){
@@ -38,6 +43,7 @@ public class Przepis implements Serializable {
             lista[index] = obj;
             index++;
         }
+
     }
 
     public int getLength(){

@@ -17,6 +17,16 @@ public class BazaPrzepisow implements Serializable {
         this.opis = opis;
     }
 
+    public String getItemName(int position) {
+
+        return getItem(position).getName();
+        //return "XD";
+    }
+
+    public int getItemCount(){
+        return index;
+    }
+
     public void setDescripion(String desc){
         this.opis=desc;
     }

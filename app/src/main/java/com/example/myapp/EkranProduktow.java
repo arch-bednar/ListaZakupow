@@ -21,8 +21,6 @@ public class EkranProduktow extends AppCompatActivity {
     public AppLogic logic;
     private File directory;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +47,13 @@ public class EkranProduktow extends AppCompatActivity {
 
         //Intent intent = getIntent();
         //logic = (AppLogic) intent.getSerializableExtra(EkranGlowny.LOGIKA);
+
         directory  = getFilesDir();
         logic = new AppLogic(directory);
         System.out.println("Ekran Produktow");
         logic.getProductBase().printOut();
 
         BazaProduktow data = logic.getProductBase();
-
 
         /*
         ArrayList<String> data = new ArrayList<>();
@@ -66,21 +64,15 @@ public class EkranProduktow extends AppCompatActivity {
         data.add("piec");
         data.add("szesc"); */
 
-
         recyclexd.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         adapter = new CustomAdapter2(data,this);
         recyclexd.setLayoutManager(layoutManager);
         recyclexd.setAdapter(adapter);
-
-
-
-
     }
 
     private void addNewProduct() {
         Intent intent = new Intent(this, DodajProdukt.class);
-
         startActivity(intent);
     }
 
