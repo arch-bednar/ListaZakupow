@@ -1,6 +1,7 @@
 package com.example.myapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
     //ArrayList<String> data;
 
     BazaPrzepisow data;
+
 
     Context context;
     public CustomAdapter3(BazaPrzepisow data, Context context){
@@ -72,9 +74,15 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
             @Override
             public void onClick(View v) {
                 //Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
-                Toast.makeText(context,data.getItemName(position),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context,"XDDDD: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
+                openRecipeActivity();
             }
         });
+    }
+
+    private void openRecipeActivity() {
+        Intent intent = new Intent(context ,EkranPrzepisu.class);
+        context.startActivity(intent);
     }
 
     @Override
