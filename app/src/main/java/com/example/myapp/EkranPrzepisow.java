@@ -16,7 +16,7 @@ package com.example.myapp;
         import java.io.File;
 
 public class EkranPrzepisow extends AppCompatActivity {
-    private Button back;
+    private Button back,add;
     private RecyclerView recycle;
     private RecyclerView.LayoutManager layoutManager;
     private CustomAdapter3 adapter;
@@ -37,6 +37,16 @@ public class EkranPrzepisow extends AppCompatActivity {
             }
         });
 
+        add = (Button) findViewById(R.id.addRecipe);
+
+        add.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                addNewPrzepis();
+            }
+        });
+
+
         directory  = getFilesDir();
         logic = new AppLogic(directory);
         System.out.println("Ekran Przepisow");
@@ -54,6 +64,10 @@ public class EkranPrzepisow extends AppCompatActivity {
 
     private void backToMain() {
         Intent intent = new Intent(this, EkranGlowny.class);
+        startActivity(intent);
+    }
+    private void addNewPrzepis() {
+        Intent intent = new Intent(this, DodajPrzepis.class);
         startActivity(intent);
     }
 }
