@@ -53,6 +53,9 @@ public class BazaListZakupow implements Serializable {
             System.out.println("Plik o nazwie "+obj.getDescription()+" już znajduje się w Bazie List Zakupów!");
         }
     }
+    public int getItemCount(){
+        return index;
+    }
 
     public int getLength(){
         return lista.length;

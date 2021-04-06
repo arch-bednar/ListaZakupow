@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".EkranPrzepisu"></activity>
+        <activity android:name=".DodajLista"></activity>
         <activity android:name=".DodajPrzepis"></activity>
         <activity android:name=".DodajProdukt" />
         <activity android:name=".EkranListZakupow" />

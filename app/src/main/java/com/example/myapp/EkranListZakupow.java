@@ -1,14 +1,29 @@
 package com.example.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.myapp.logic.AppLogic;
+import com.example.myapp.logic.BazaListZakupow;
+import com.example.myapp.logic.BazaProduktow;
+import com.example.myapp.logic.BazaPrzepisow;
+
+import java.io.File;
+
 public class EkranListZakupow extends AppCompatActivity {
-    private Button back;
+    private Button back,add;
+    private RecyclerView recycle;
+    private RecyclerView.LayoutManager layoutManager;
+    private CustomAdapter4 adapter;
+    public AppLogic logic;
+    private File directory;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +37,38 @@ public class EkranListZakupow extends AppCompatActivity {
                 backToMain();
             }
         });
+
+        add = (Button) findViewById(R.id.addLista);
+
+        add.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                addNewLista();
+            }
+        });
+
+
+        directory  = getFilesDir();
+        logic = new AppLogic(directory);
+        System.out.println("Ekran List");
+        logic.getRecipesBase().printOut();
+
+        BazaListZakupow data = logic.getShoppingListBase();
+
+        recycle = (RecyclerView) findViewById(R.id.recycleList);
+        recycle.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        adapter = new CustomAdapter4(data,this);
+        recycle.setLayoutManager(layoutManager);
+        recycle.setAdapter(adapter);
     }
 
     private void backToMain() {
         Intent intent = new Intent(this, EkranGlowny.class);
+        startActivity(intent);
+    }
+    private void addNewLista() {
+        Intent intent = new Intent(this, DodajLista.class);
         startActivity(intent);
     }
 }

@@ -15,6 +15,7 @@ public class ListaZakupow implements Serializable {
     public ListaZakupow(int productAmount, String opis){
         this.lista = new ProduktNaLiscie[productAmount];
         this.opis = opis;
+
     }
 
     public void setDescripion(String desc){

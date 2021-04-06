@@ -51,7 +51,7 @@ public class EkranGlowny extends AppCompatActivity {
         buttonListyZakupow.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                openEkranListProduktow();
+                openEkranListZakupow();
             }
         } );
     }
@@ -108,7 +108,7 @@ public class EkranGlowny extends AppCompatActivity {
         logic.save();
     }
 
-    private void openEkranListProduktow() {
+    private void openEkranListZakupow() {
         Intent intent = new Intent(this, EkranListZakupow.class);
         intent.putExtra(LOGIKA, logic);
         startActivity(intent);
