@@ -27,6 +27,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapp.logic.AppLogic;
 import com.example.myapp.logic.BazaListZakupow;
 import com.example.myapp.logic.BazaProduktow;
 import com.example.myapp.logic.BazaPrzepisow;
@@ -39,14 +40,16 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
     //ArrayList<String> data;
 
     ListaZakupow data;
+    AppLogic logic;
     public static final String shoppingListID = "XD";
 
 //TODO: DOPASOWAĆ!
 
     Context context;
-    public CustomAdapterListScreen(ListaZakupow data, Context context){
+    public CustomAdapterListScreen(ListaZakupow data, Context context, AppLogic logic){
         this.data = data;
         this.context = context;
+        this.logic = logic;
     }
 
     @Override
@@ -61,6 +64,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
         holder.textView.setText(data.getItem(position).getDescription());
         holder.amount.setText(""+ data.getItem(position).getAmount());
         holder.unit.setText(data.getItem(position).getUnit());
+        holder.checkBox.setChecked(data.getItem(position).isActivated());
 
         /*
         holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -77,6 +81,24 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
         });
         */
 
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Context contextLocal = buttonView.getContext();
+                if (isChecked) {
+                    //Toast.makeText(contextLocal, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
+                    //Toast.makeText(contextLocal, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
+                    data.getItem(position).setChecked(true);
+
+                } else {
+                    //Toast.makeText(contextLocal, data.getItem(position).getDescription()+"Unchecked", Toast.LENGTH_LONG).show();
+                    data.getItem(position).setChecked(false);
+                }
+
+                System.out.println("\n\n\n "+data.getItem(position).isActivated());
+                logic.save();
+            }
+        });
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

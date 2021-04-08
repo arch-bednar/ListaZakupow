@@ -29,6 +29,14 @@ public class ProduktNaLiscie implements Serializable {
         return produkt.getUnit();
     }
 
+    public boolean isActivated(){
+        return wybrane;
+    };
+
+    public void setChecked(boolean state){
+        this.wybrane = state;
+    }
+
     public void setAmount(double a){
         ilosc = a;
     }

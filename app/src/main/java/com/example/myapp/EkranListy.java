@@ -74,7 +74,7 @@ public class EkranListy extends AppCompatActivity {
         recycle = (RecyclerView) findViewById(R.id.recycleShoppingList);
         recycle.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CustomAdapterListScreen(listaZakupow,this);
+        adapter = new CustomAdapterListScreen(listaZakupow,this, logic);
         recycle.setLayoutManager(layoutManager);
         recycle.setAdapter(adapter);
 
