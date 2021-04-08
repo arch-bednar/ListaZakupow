@@ -88,4 +88,15 @@ public class BazaListZakupow implements Serializable {
         }
     }
 
+    public void remove(int shoppingListIndex) {
+        //TODO: USUWANIE DANEJ LISTY ZAKUPÓW PO INDEKSIE
+
+        lista[shoppingListIndex] = null; //niepotrzebne, jedynie informacyjnie jest zostawione
+
+        for(int i=shoppingListIndex+1; i<=index; i++){
+            lista[i-1] = lista[i];
+        }
+
+        index--;
+    }
 }

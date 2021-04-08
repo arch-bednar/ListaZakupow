@@ -16,7 +16,7 @@ import com.example.myapp.logic.ListaZakupow;
 import java.io.File;
 
 public class EkranListy extends AppCompatActivity {
-    private Button back,addProduct,addRecipe;
+    private Button back,addProduct,addRecipe, removeList;
     private RecyclerView recycle;
     private RecyclerView.LayoutManager layoutManager;
     private CustomAdapterListScreen adapter;
@@ -34,6 +34,7 @@ public class EkranListy extends AppCompatActivity {
         back = (Button) findViewById(R.id.backFromList);
         addProduct = (Button) findViewById(R.id.addProductToList);
         addRecipe = (Button) findViewById(R.id.addRecipeToList);
+        removeList = (Button) findViewById(R.id.buttonRemoveList);
         tytul = (TextView) findViewById(R.id.textView7);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +53,12 @@ public class EkranListy extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 addRecipeToList();
+            }
+        });
+        removeList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeShoppingList(shoppingListIndex);
             }
         });
 
@@ -77,6 +84,14 @@ public class EkranListy extends AppCompatActivity {
 
 
 
+    }
+
+    private void removeShoppingList(int shoppingListIndex) {
+        //remove the list
+        logic.getShoppingListBase().remove(shoppingListIndex);
+        logic.save();
+
+        backToListOfLists();
     }
 
     private void addRecipeToList() {
