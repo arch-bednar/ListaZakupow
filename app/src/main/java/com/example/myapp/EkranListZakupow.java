@@ -11,8 +11,6 @@ import android.widget.Button;
 
 import com.example.myapp.logic.AppLogic;
 import com.example.myapp.logic.BazaListZakupow;
-import com.example.myapp.logic.BazaProduktow;
-import com.example.myapp.logic.BazaPrzepisow;
 
 import java.io.File;
 
@@ -20,7 +18,7 @@ public class EkranListZakupow extends AppCompatActivity {
     private Button back,add;
     private RecyclerView recycle;
     private RecyclerView.LayoutManager layoutManager;
-    private CustomAdapter4 adapter;
+    private CustomAdapterShoppingListsScreen adapter;
     public AppLogic logic;
     private File directory;
 
@@ -58,7 +56,7 @@ public class EkranListZakupow extends AppCompatActivity {
         recycle = (RecyclerView) findViewById(R.id.recycleList);
         recycle.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CustomAdapter4(data,this);
+        adapter = new CustomAdapterShoppingListsScreen(data,this);
         recycle.setLayoutManager(layoutManager);
         recycle.setAdapter(adapter);
     }

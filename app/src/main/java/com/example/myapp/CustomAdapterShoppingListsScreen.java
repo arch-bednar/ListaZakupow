@@ -12,28 +12,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
-
 //package com.example.ryclerview;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapp.logic.BazaListZakupow;
-import com.example.myapp.logic.BazaProduktow;
-import com.example.myapp.logic.BazaPrzepisow;
-import com.example.myapp.logic.Produkt;
 
-import java.util.ArrayList;
-
-public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.CustomAdapterViewHolder> {
+public class CustomAdapterShoppingListsScreen extends RecyclerView.Adapter<CustomAdapterShoppingListsScreen.CustomAdapterViewHolder> {
     //ArrayList<String> data;
 
     BazaListZakupow data;
@@ -41,14 +26,14 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.CustomAd
 
 
     Context context;
-    public CustomAdapter4(BazaListZakupow data, Context context){
+    public CustomAdapterShoppingListsScreen(BazaListZakupow data, Context context){
         this.data = data;
         this.context = context;
     }
 
     @Override
     public CustomAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_shopping_lists,parent,false);
         return new CustomAdapterViewHolder(view);
     }
 
@@ -57,6 +42,7 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.CustomAd
         //holder.textView.setText(data.get(position));
         holder.textView.setText(data.getItem(position).getDescription());
 
+        /*
         holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
@@ -69,7 +55,7 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.CustomAd
                 }
             }
         });
-
+        */
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +89,7 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.CustomAd
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.itemtextview);
-            switchSelected = itemView.findViewById(R.id.swChecked);
+            //switchSelected = itemView.findViewById(R.id.swChecked);
         }
     }
 }
