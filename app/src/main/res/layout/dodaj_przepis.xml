@@ -20,7 +20,11 @@
         android:id="@+id/nazwaPrzepisu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Nazwa"
@@ -32,7 +36,11 @@
         android:id="@+id/opisPrzepisu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Opis"
@@ -45,17 +53,23 @@
         android:id="@+id/backPrzepis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="24dp"
         android:text="BACK"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/saveNewPrzepis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="24dp"
         android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/editTextNumber"

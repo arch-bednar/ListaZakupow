@@ -29,19 +29,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapp.logic.BazaListZakupow;
 import com.example.myapp.logic.BazaProduktow;
 import com.example.myapp.logic.BazaPrzepisow;
+import com.example.myapp.logic.ListaZakupow;
 import com.example.myapp.logic.Produkt;
 
 import java.util.ArrayList;
 
-public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.CustomAdapterViewHolder> {
+public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterListScreen.CustomAdapterViewHolder> {
     //ArrayList<String> data;
 
-    BazaListZakupow data;
-    public static final String recipeID = "XD";
+    ListaZakupow data;
+    public static final String shoppingListID = "XD";
 
+//TODO: DOPASOWAĆ!
 
     Context context;
-    public CustomAdapter4(BazaListZakupow data, Context context){
+    public CustomAdapterListScreen(ListaZakupow data, Context context){
         this.data = data;
         this.context = context;
     }
@@ -85,7 +87,7 @@ public class CustomAdapter4 extends RecyclerView.Adapter<CustomAdapter4.CustomAd
 
     private void openShoppingListActivity(int index){
         Intent intent = new Intent(context, EkranListy.class);
-        intent.putExtra(recipeID, index);
+        intent.putExtra(shoppingListID, index);
         context.startActivity(intent);
     }
 

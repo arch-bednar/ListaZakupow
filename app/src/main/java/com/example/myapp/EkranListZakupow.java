@@ -51,7 +51,7 @@ public class EkranListZakupow extends AppCompatActivity {
         directory  = getFilesDir();
         logic = new AppLogic(directory);
         System.out.println("Ekran List");
-        logic.getRecipesBase().printOut();
+        logic.getShoppingListBase().printOut();
 
         BazaListZakupow data = logic.getShoppingListBase();
 

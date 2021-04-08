@@ -18,6 +18,10 @@ public class ListaZakupow implements Serializable {
 
     }
 
+    public int getItemCount(){
+        return index;
+    }
+
     public void setDescripion(String desc){
         this.opis=desc;
     }
