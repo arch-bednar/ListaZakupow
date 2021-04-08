@@ -63,7 +63,7 @@ public class EkranListy extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        shoppingListIndex = (int) intent.getIntExtra(CustomAdapterListScreen.shoppingListID, 0);
+        shoppingListIndex = (int) intent.getIntExtra(CustomAdapterShoppingListsScreen.recipeID, 0);
 
         directory  = getFilesDir();
         logic = new AppLogic(directory);

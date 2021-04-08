@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EkranListy"></activity>
+        <activity android:name=".EkranProduktuNaLiscie"></activity>
+        <activity android:name=".EkranListy" />
         <activity android:name=".EkranPrzepisu" />
         <activity android:name=".DodajLista" />
         <activity android:name=".DodajPrzepis" />

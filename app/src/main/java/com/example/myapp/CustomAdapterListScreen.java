@@ -41,7 +41,8 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
 
     ListaZakupow data;
     AppLogic logic;
-    public static final String shoppingListID = "XD";
+    public static final String productID = "XD";
+    public static final String listID = "COO";
 
 //TODO: DOPASOWAĆ!
 
@@ -114,6 +115,10 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
 
     private void openProductOnListActivity(int position) {
         //TODO: EDYCJA ELEMENTÓW Z LISTY ZAKUPÓW
+        Intent intent = new Intent(context, EkranProduktuNaLiscie.class);
+        intent.putExtra(productID, position);
+        intent.putExtra(listID, data);
+        context.startActivity(intent);
     }
 
     @Override
