@@ -25,6 +25,10 @@ public class ProduktNaLiscie implements Serializable {
         return ilosc;
     }
 
+    public String getUnit(){
+        return produkt.getUnit();
+    }
+
     public void setAmount(double a){
         ilosc = a;
     }

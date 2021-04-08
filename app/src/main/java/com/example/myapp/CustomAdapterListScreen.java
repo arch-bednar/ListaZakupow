@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -50,7 +51,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
 
     @Override
     public CustomAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_shopping_list,parent,false);
         return new CustomAdapterViewHolder(view);
     }
 
@@ -58,7 +59,10 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
     public void onBindViewHolder(@NonNull CustomAdapterViewHolder holder, final int position) {
         //holder.textView.setText(data.get(position));
         holder.textView.setText(data.getItem(position).getDescription());
+        holder.amount.setText(""+ data.getItem(position).getAmount());
+        holder.unit.setText(data.getItem(position).getUnit());
 
+        /*
         holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
@@ -71,6 +75,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
                 }
             }
         });
+        */
 
 
 
@@ -79,16 +84,14 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
             public void onClick(View v) {
                 //Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
                 //Toast.makeText(context,"XDDDD: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
-                openShoppingListActivity(position);
+
+                openProductOnListActivity(position);
             }
         });
     }
 
-
-    private void openShoppingListActivity(int index){
-        Intent intent = new Intent(context, EkranListy.class);
-        intent.putExtra(shoppingListID, index);
-        context.startActivity(intent);
+    private void openProductOnListActivity(int position) {
+        //TODO: EDYCJA ELEMENTÓW Z LISTY ZAKUPÓW
     }
 
     @Override
@@ -99,13 +102,17 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
     }
 
     public static class CustomAdapterViewHolder extends RecyclerView.ViewHolder{
-        public TextView textView;
-        public Switch switchSelected;
+        public TextView textView, unit, amount;
+        public CheckBox checkBox;
+
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.itemtextview);
-            switchSelected = itemView.findViewById(R.id.swChecked);
+            unit = itemView.findViewById(R.id.textViewItemUnit);
+            amount = itemView.findViewById(R.id.textViewItemCount);
+            checkBox = itemView.findViewById(R.id.checkBoxItem);
+            //switchSelected = itemView.findViewById(R.id.swChecked);
         }
     }
 }
