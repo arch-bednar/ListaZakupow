@@ -1,11 +1,11 @@
 package com.example.myapp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,10 +18,10 @@ import java.io.File;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapp.logic.AppLogic;
-import com.example.myapp.logic.BazaPrzepisow;
+import com.example.myapp.logic.BazaProduktow;
 
-public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.CustomAdapterViewHolder> {
-    BazaPrzepisow data;
+public class CustomAdapterAP extends RecyclerView.Adapter<CustomAdapterAP.CustomAdapterViewHolder> {
+    BazaProduktow data;
     AppLogic logic;
     private int shoppingListIndex;
     public static final String productID = "XD";
@@ -30,32 +30,37 @@ public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.Custom
 
     Context context;
 
-    public CustomAdapterAR(int shoppingListIndex, Context context){
+    public CustomAdapterAP(int shoppingListIndex, Context context){
         this.shoppingListIndex = shoppingListIndex;
 
         File directory  = context.getFilesDir();
         this.logic = new AppLogic(directory);
 
-        this.data = this.logic.getRecipesBase();
+        this.data = this.logic.getProductBase();
         this.context = context;
     }
 
     @Override
     public CustomAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_ar,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_ap,parent,false);
         return new CustomAdapterViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapterViewHolder holder, final int position) {
-        holder.recipeNameTV.setText(data.getItemName(position));
-        holder.addRecipeButton.setOnClickListener(new View.OnClickListener() {
+        
+        holder.productNameTV.setText(data.getItemName(position));
+        holder.productAmountTV.setText(data.getItem(position).getUnit());
+        holder.addProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addRecipe(position);
+                addProduct(position);
             }
         });
 
+
+
+         
         /*
         holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -76,22 +81,14 @@ public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.Custom
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context,"Pokaż zawartość przepisu: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"Produkt: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
 
                 //openProductOnListActivity(position);
             }
         });
     }
 
-    private void addRecipe(int position) {
-        Toast.makeText(context,"Dodano przepis "+ data.getItemName(position), Toast.LENGTH_SHORT).show();
-        logic.getShoppingListBase().getItem(shoppingListIndex).addPrzepis(data.getItem(position));
-        logic.save();
-
-        Intent intent = new Intent(context, EkranListy.class);
-        intent.putExtra(CustomAdapterShoppingListsScreen.recipeID, shoppingListIndex);
-        context.startActivity(intent);
-
+    private void addProduct(int position) {
     }
 
 
@@ -101,13 +98,16 @@ public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.Custom
     }
 
     public static class CustomAdapterViewHolder extends RecyclerView.ViewHolder{
-        public TextView recipeNameTV;
-        public Button addRecipeButton;
+        public TextView productNameTV;
+        public TextView productAmountTV;
+        public Button addProductButton;
+
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            recipeNameTV = itemView.findViewById(R.id.tvAddProductName);
-            addRecipeButton = itemView.findViewById(R.id.buttonAddAP);
+            productNameTV = itemView.findViewById(R.id.tvAddProductName);
+            addProductButton = itemView.findViewById(R.id.buttonAddAP);
+            productAmountTV = itemView.findViewById(R.id.textViewProductAmountAP);
 
         }
     }

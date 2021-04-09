@@ -6,6 +6,7 @@
     android:layout_width="match_parent" android:layout_height="50dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/textViewJustAP"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -13,8 +14,8 @@
             android:id="@+id/tvAddProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="TextView"
@@ -23,38 +24,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <CheckBox
-            android:id="@+id/checkBoxItem"
-            android:layout_width="33dp"
-            android:layout_height="31dp"
+        <Button
+            android:id="@+id/buttonAddAP"
+            android:layout_width="37dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:text="+"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewItemCount"
-            android:layout_width="30dp"
-            android:layout_height="19dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
-            android:text="Amount"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textViewItemUnit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="92dp"
-            android:layout_marginRight="92dp"
+            android:id="@+id/textViewProductAmountAP"
+            android:layout_width="31dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
             android:text="unit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.516" />
+            app:layout_constraintVertical_bias="0.468" />
+
+        <EditText
+            android:id="@+id/editTextNumberDecimal"
+            android:layout_width="62dp"
+            android:layout_height="49dp"
+            android:layout_marginEnd="96dp"
+            android:layout_marginRight="96dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.615" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

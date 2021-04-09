@@ -7,7 +7,7 @@
     tools:context=".EkranDodawaniaPrzepisu">
 
     <TextView
-        android:id="@+id/textViewJustAR"
+        android:id="@+id/textViewJustAP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -34,5 +34,5 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewJustAR" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewJustAP" />
 </androidx.constraintlayout.widget.ConstraintLayout>
