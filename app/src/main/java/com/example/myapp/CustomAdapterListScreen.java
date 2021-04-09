@@ -87,6 +87,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
 
                 System.out.println("\n\n\n "+data.getItem(position).isActivated());
                 logic.save();
+                openListActivity();
             }
         });
 
@@ -100,6 +101,12 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
                 openProductOnListActivity(position);
             }
         });
+    }
+
+    private void openListActivity() {
+        Intent intent =new Intent(context, EkranListy.class);
+        intent.putExtra(CustomAdapterShoppingListsScreen.recipeID, shoppingListIndex);
+        context.startActivity(intent);
     }
 
     private void openProductOnListActivity(int position) {

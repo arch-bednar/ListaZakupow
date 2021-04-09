@@ -131,11 +131,16 @@ public class ListaZakupow implements Serializable {
     }
 
     public void koniecZakupow(){
-        for (int i=0;i<index;i++){
+        System.out.println(this.index);
+        int i =0;
+        while (i < this.index){
+            System.out.println("GFFFADFSAFAFA");
+            System.out.println(lista[i].isActivated());
             if (lista[i].isActivated()){
-                removeElement(i);
-
+                System.out.println("FFFADFSAFAFA");
+                    removeElement(i);
             }
+            i++;
         }
     }
 

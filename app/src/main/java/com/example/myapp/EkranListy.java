@@ -40,6 +40,7 @@ public class EkranListy extends AppCompatActivity {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("TendOfShopping");
                 endOfShopping();
             }
         });
@@ -118,8 +119,12 @@ public class EkranListy extends AppCompatActivity {
     }
 
     private  void endOfShopping() {
+        System.out.println("TET");
         listaZakupow.koniecZakupow();
         logic.save();
+        Intent intent = new Intent (this, EkranListy.class);
+        intent.putExtra(CustomAdapterShoppingListsScreen.recipeID, shoppingListIndex);
+        startActivity(intent);
 
     }
 }
