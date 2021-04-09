@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import java.io.File;
 import java.util.ArrayList;
 
 //package com.example.ryclerview;
@@ -41,16 +42,21 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
 
     ListaZakupow data;
     AppLogic logic;
+    private int shoppingListIndex;
     public static final String productID = "XD";
     public static final String listID = "COO";
+    public static final String logicID = "logic";
 
 //TODO: DOPASOWAĆ!
 
     Context context;
-    public CustomAdapterListScreen(ListaZakupow data, Context context, AppLogic logic){
-        this.data = data;
+    public CustomAdapterListScreen(int shoppingListIndex, Context context){
+        this.shoppingListIndex = shoppingListIndex;
+        File directory  = context.getFilesDir();
+        this.logic = new AppLogic(directory);
+        ListaZakupow listaZakupow = this.logic.getShoppingListBase().getItem(shoppingListIndex);
+        this.data = listaZakupow;
         this.context = context;
-        this.logic = logic;
     }
 
     @Override
@@ -117,7 +123,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
         //TODO: EDYCJA ELEMENTÓW Z LISTY ZAKUPÓW
         Intent intent = new Intent(context, EkranProduktuNaLiscie.class);
         intent.putExtra(productID, position);
-        intent.putExtra(listID, data);
+        intent.putExtra(listID, shoppingListIndex);
         context.startActivity(intent);
     }
 

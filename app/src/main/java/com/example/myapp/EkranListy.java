@@ -67,14 +67,14 @@ public class EkranListy extends AppCompatActivity {
 
         directory  = getFilesDir();
         logic = new AppLogic(directory);
-        listaZakupow= logic.getShoppingListBase().getItem(shoppingListIndex);
+        listaZakupow = logic.getShoppingListBase().getItem(shoppingListIndex);
 
         tytul.setText(listaZakupow.getDescription());
 
         recycle = (RecyclerView) findViewById(R.id.recycleShoppingList);
         recycle.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CustomAdapterListScreen(listaZakupow,this, logic);
+        adapter = new CustomAdapterListScreen(shoppingListIndex,this);
         recycle.setLayoutManager(layoutManager);
         recycle.setAdapter(adapter);
 
