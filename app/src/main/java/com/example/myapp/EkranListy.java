@@ -95,6 +95,7 @@ public class EkranListy extends AppCompatActivity {
     }
 
     private void addRecipeToList() {
+       // Intent intent = new Intent(this, EkranDodawaniaProduktu.class)
     }
 
     private void addProductToList() {

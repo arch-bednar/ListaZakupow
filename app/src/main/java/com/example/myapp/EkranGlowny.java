@@ -74,7 +74,14 @@ public class EkranGlowny extends AppCompatActivity {
         bP.addToList(makaZiemniaczana);
 
         ListaZakupow rowerowe = new ListaZakupow(1, "Zakupy rowerowe.");
+        ListaZakupow makaron = new ListaZakupow(1, "Makaron");
+
+        makaron.addToList(new ProduktNaLiscie(makaTortowa, 1));
+        makaron.addToList(new ProduktNaLiscie(makaZiemniaczana, 1));
+
+        bLZ.addToList(makaron);
         bLZ.addToList(rowerowe);
+
 
         ProduktNaLiscie garm = new ProduktNaLiscie(bP.getItem(0), 1);
         bLZ.getItem(0).addToList(garm);

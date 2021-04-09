@@ -120,7 +120,6 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
     }
 
     private void openProductOnListActivity(int position) {
-        //TODO: EDYCJA ELEMENTÓW Z LISTY ZAKUPÓW
         Intent intent = new Intent(context, EkranProduktuNaLiscie.class);
         intent.putExtra(productID, position);
         intent.putExtra(listID, shoppingListIndex);

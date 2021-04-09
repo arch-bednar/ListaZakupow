@@ -89,6 +89,7 @@ public class EkranProduktuNaLiscie extends AppCompatActivity {
 
     private void backToShoppingList() {
         Intent intent = new Intent(this, EkranListy.class);
+        intent.putExtra(CustomAdapterShoppingListsScreen.recipeID, shoppingListID);
         startActivity(intent);
     }
 }
