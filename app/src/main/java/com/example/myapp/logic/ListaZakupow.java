@@ -139,8 +139,10 @@ public class ListaZakupow implements Serializable {
             if (lista[i].isActivated()){
                 System.out.println("FFFADFSAFAFA");
                     removeElement(i);
+
             }
-            i++;
+            else{
+            i++;}
         }
     }
 
