@@ -2,9 +2,9 @@ package com.example.myapp.logic;
 import java.io.Serializable;
 
 public class ProduktNaLiscie implements Serializable {
-    public Produkt produkt;
-    public double ilosc;
-    public boolean wybrane;
+    private Produkt produkt;
+    private double ilosc;
+    private boolean wybrane;
 
     ProduktNaLiscie(Produkt produkt, double ilosc, boolean wybrane){
         this.produkt = produkt;
@@ -44,4 +44,6 @@ public class ProduktNaLiscie implements Serializable {
     public String getDescription() {
         return produkt.getName();
     }
+
+    public  Produkt getProduct() {return produkt;}
 }

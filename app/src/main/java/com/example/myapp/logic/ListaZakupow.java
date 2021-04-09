@@ -36,7 +36,7 @@ public class ListaZakupow implements Serializable {
 
         for(int i=0; i<getLength(); i++){
             if(lista[i] != null){
-                if(lista[i].produkt.nazwa.equals(obj.produkt.nazwa)){
+                if(lista[i].getDescription().equals(obj.getDescription())){
                     flagaDuplikatu = true;
                     lista[i].setAmount(lista[i].getAmount() + obj.getAmount());
                     i=getLength();
@@ -89,7 +89,7 @@ public class ListaZakupow implements Serializable {
                 for (int i = 0; i < getLength(); i++) {
                     if ((lista[i] != null)) {
 
-                        if (lista[i].produkt.nazwa.equals(obj.lista[j].produkt.nazwa)) {
+                        if (lista[i].getProduct().getName().equals(obj.lista[j].produkt.nazwa)) {
                             flagaDuplikatu = true;
                             lista[i].setAmount(lista[i].getAmount() + obj.lista[j].getAmount());
                             i = getLength();
@@ -129,9 +129,9 @@ public class ListaZakupow implements Serializable {
         this.lista = nowaLista;
     }
 
-    public void koniecZakupów(){
+    public void koniecZakupow(){
         for (int i=0;i<getLength();i++){
-            if (lista[i].wybrane){
+            if (lista[i].isActivated()){
                 removeElement(i);
             }
         }

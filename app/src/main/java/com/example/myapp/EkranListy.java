@@ -16,7 +16,7 @@ import com.example.myapp.logic.ListaZakupow;
 import java.io.File;
 
 public class EkranListy extends AppCompatActivity {
-    private Button back,addProduct,addRecipe, removeList;
+    private Button back,addProduct,addRecipe, removeList,end;
     private RecyclerView recycle;
     private RecyclerView.LayoutManager layoutManager;
     private CustomAdapterListScreen adapter;
@@ -30,7 +30,7 @@ public class EkranListy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ekran_listy);
-
+        end = (Button) findViewById(R.id.end);
         back = (Button) findViewById(R.id.backFromList);
         addProduct = (Button) findViewById(R.id.addProductToList);
         addRecipe = (Button) findViewById(R.id.addRecipeToList);
@@ -109,5 +109,11 @@ public class EkranListy extends AppCompatActivity {
     private void backToListOfLists() {
         Intent intent = new Intent(this, EkranListZakupow.class);
         startActivity(intent);
+    }
+
+    private  void endOfShopping() {
+        listaZakupow.koniecZakupow();
+        logic.save();
+
     }
 }
