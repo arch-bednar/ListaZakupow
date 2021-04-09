@@ -30,13 +30,19 @@ public class EkranListy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ekran_listy);
-        end = (Button) findViewById(R.id.end);
+        end = (Button) findViewById(R.id.koniec);
         back = (Button) findViewById(R.id.backFromList);
         addProduct = (Button) findViewById(R.id.addProductToList);
         addRecipe = (Button) findViewById(R.id.addRecipeToList);
         removeList = (Button) findViewById(R.id.buttonRemoveList);
         tytul = (TextView) findViewById(R.id.textView7);
 
+        end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                endOfShopping();
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

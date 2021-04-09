@@ -117,22 +117,24 @@ public class ListaZakupow implements Serializable {
         }
     }
 
-    private  void removeElement(int index){
+    private  void removeElement(int indeks){
         ProduktNaLiscie[] nowaLista = new ProduktNaLiscie[lista.length-1];
         //Przepisanie listy
         for(int i=0,k=0; i<lista.length; i++){
-            if (i==index){
+            if (i==indeks){
                 continue;
             }
             nowaLista[k++] = lista[i];
         }
         this.lista = nowaLista;
+        this.index--;
     }
 
     public void koniecZakupow(){
-        for (int i=0;i<getLength();i++){
+        for (int i=0;i<index;i++){
             if (lista[i].isActivated()){
                 removeElement(i);
+
             }
         }
     }
