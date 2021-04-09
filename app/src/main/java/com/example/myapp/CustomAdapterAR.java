@@ -85,7 +85,7 @@ public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.Custom
     }
 
     private void addRecipe(int position) {
-        Toast.makeText(context,"Dodaj ten przepis do listy: "+ data.getItemName(position)+", lista: "+logic.getShoppingListBase().getItem(shoppingListIndex).getDescription(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context,"Dodano przepis "+ data.getItemName(position), Toast.LENGTH_SHORT).show();
         logic.getShoppingListBase().getItem(shoppingListIndex).addPrzepis(data.getItem(position));
         logic.save();
 
