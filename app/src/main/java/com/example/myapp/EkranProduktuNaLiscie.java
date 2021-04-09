@@ -81,12 +81,9 @@ public class EkranProduktuNaLiscie extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 backToShoppingList();
+                //TODO [IMPORTANT]: REFRESH THE ACTIVITY WHEN SYSTEM BACK BUTTON CLICKED
             }
         });
-
-
-
-
 
     }
 
