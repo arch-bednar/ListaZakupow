@@ -95,10 +95,15 @@ public class EkranListy extends AppCompatActivity {
     }
 
     private void addRecipeToList() {
-       // Intent intent = new Intent(this, EkranDodawaniaProduktu.class)
+        Intent intent = new Intent(this, EkranDodawaniaPrzepisu.class);
+        intent.putExtra(CustomAdapterShoppingListsScreen.recipeID, shoppingListIndex);
+        startActivity(intent);
     }
 
     private void addProductToList() {
+        Intent intent = new Intent(this, EkranDodawaniaProduktu.class);
+        intent.putExtra(CustomAdapterShoppingListsScreen.recipeID, shoppingListIndex);
+        startActivity(intent);
     }
 
     private void backToListOfLists() {

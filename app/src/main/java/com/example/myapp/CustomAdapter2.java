@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,7 +71,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomAd
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.itemtextview);
+            textView = itemView.findViewById(R.id.tvAddRecipeName);
             //switchSelected = itemView.findViewById(R.id.swChecked);
         }
     }

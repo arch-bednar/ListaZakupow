@@ -12,25 +12,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
-
 //package com.example.ryclerview;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapp.logic.BazaProduktow;
 import com.example.myapp.logic.BazaPrzepisow;
-import com.example.myapp.logic.Produkt;
-
-import java.util.ArrayList;
 
 public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAdapterViewHolder> {
     //ArrayList<String> data;
@@ -99,7 +85,7 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.itemtextview);
+            textView = itemView.findViewById(R.id.tvAddRecipeName);
             switchSelected = itemView.findViewById(R.id.swChecked);
         }
     }
