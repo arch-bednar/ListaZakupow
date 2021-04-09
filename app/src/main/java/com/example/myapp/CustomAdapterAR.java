@@ -77,7 +77,7 @@ public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.Custom
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context,"XDDDD: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"Pokaż zawartość przepisu: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
 
                 //openProductOnListActivity(position);
             }
