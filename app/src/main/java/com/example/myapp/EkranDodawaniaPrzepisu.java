@@ -45,7 +45,7 @@ public class EkranDodawaniaPrzepisu extends AppCompatActivity {
 
         //get references
         back = (Button) findViewById(R.id.buttonBackAR);
-        naglowek = (TextView) findViewById(R.id.textViewJustAR);
+        naglowek = (TextView) findViewById(R.id.textViewJustAP);
 
 
         //add listeners

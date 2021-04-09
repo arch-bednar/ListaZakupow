@@ -1,6 +1,8 @@
 package com.example.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +24,9 @@ public class EkranDodawaniaProduktu extends AppCompatActivity {
 
     private Button back;
     private TextView naglowek;
+    private RecyclerView recycle;
+    private RecyclerView.LayoutManager layoutManager;
+    private CustomAdapterAP adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,7 @@ public class EkranDodawaniaProduktu extends AppCompatActivity {
         //get references
         back = (Button) findViewById(R.id.buttonBackToShoppingListAP);
         naglowek = (TextView) findViewById(R.id.textViewAP);
+        recycle = (RecyclerView) findViewById(R.id.recyclerAP);
 
 
         //add listeners
@@ -51,6 +57,14 @@ public class EkranDodawaniaProduktu extends AppCompatActivity {
 
         //set title
         naglowek.setText("Dodaj produkt do listy: " + listaZakupow.getDescription());
+
+        //handle the recycler view
+        recycle.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+
+        adapter = new CustomAdapterAP(shoppingListIndex,this);
+        recycle.setLayoutManager(layoutManager);
+        recycle.setAdapter(adapter);
 
 
     }
