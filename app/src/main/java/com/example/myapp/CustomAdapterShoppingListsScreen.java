@@ -86,7 +86,7 @@ public class CustomAdapterShoppingListsScreen extends RecyclerView.Adapter<Custo
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tvAddProductName);
+            textView = itemView.findViewById(R.id.textViewAPRName);
             //switchSelected = itemView.findViewById(R.id.swChecked);
         }
     }

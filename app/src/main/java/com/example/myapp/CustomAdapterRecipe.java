@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -107,7 +105,7 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tvAddProductName);
+            textView = itemView.findViewById(R.id.textViewAPRName);
             unit = itemView.findViewById(R.id.textViewItemUnit2);
             amount = itemView.findViewById(R.id.textViewItemCount2);
             checkBox = itemView.findViewById(R.id.RecProdDel);

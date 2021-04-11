@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapp.logic.AppLogic;
 import com.example.myapp.logic.Przepis;
@@ -57,6 +58,12 @@ public class EkranPrzepisu extends AppCompatActivity {
                 openRecipesListActivity();
             }
         });
+        addProductToRecipeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addProduct();
+            }
+        });
 
 
 
@@ -69,6 +76,13 @@ public class EkranPrzepisu extends AppCompatActivity {
         recycle.setAdapter(adapter);
 
 
+    }
+
+    private void addProduct() {
+        //Toast.makeText(this, "A JA WIEEEM",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, EkranDodawaniaProduktuDoPrzepisu.class);
+        intent.putExtra(CustomAdapterRecipesList.recipeID, recipeIndex);
+        startActivity(intent);
     }
 
     private void openRecipesListActivity() {

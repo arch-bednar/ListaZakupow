@@ -130,7 +130,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tvAddProductName);
+            textView = itemView.findViewById(R.id.textViewAPRName);
             unit = itemView.findViewById(R.id.textViewItemUnit);
             amount = itemView.findViewById(R.id.textViewItemCount);
             checkBox = itemView.findViewById(R.id.checkBoxItem);

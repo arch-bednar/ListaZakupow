@@ -11,29 +11,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-
-import java.io.File;
-
-//package com.example.ryclerview;
-
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapp.logic.AppLogic;
 import com.example.myapp.logic.BazaProduktow;
 import com.example.myapp.logic.ProduktNaLiscie;
+import com.example.myapp.logic.ProduktWPrzepisie;
 
-public class CustomAdapterAP extends RecyclerView.Adapter<CustomAdapterAP.CustomAdapterViewHolder> {
+import java.io.File;
+
+//package com.example.ryclerview;
+
+public class CustomAdapterAPToRecipe extends RecyclerView.Adapter<CustomAdapterAPToRecipe.CustomAdapterViewHolder> {
     BazaProduktow data;
     AppLogic logic;
-    private int shoppingListIndex;
+    private int recipeIndex;
     public static final String productID = "XD";
     public static final String listID = "COO";
     public static final String logicID = "logic";
 
     Context context;
 
-    public CustomAdapterAP(int shoppingListIndex, Context context){
-        this.shoppingListIndex = shoppingListIndex;
+    public CustomAdapterAPToRecipe(int recipeIndex, Context context){
+        this.recipeIndex = recipeIndex;
 
         File directory  = context.getFilesDir();
         this.logic = new AppLogic(directory);
@@ -44,7 +44,7 @@ public class CustomAdapterAP extends RecyclerView.Adapter<CustomAdapterAP.Custom
 
     @Override
     public CustomAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_ap,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_ap_to_recipe,parent,false);
         return new CustomAdapterViewHolder(view);
     }
 
@@ -88,6 +88,7 @@ public class CustomAdapterAP extends RecyclerView.Adapter<CustomAdapterAP.Custom
         });
     }
 
+
     private void addProduct(int position, @NonNull final CustomAdapterViewHolder holder) {
         double d=0;
 
@@ -99,12 +100,14 @@ public class CustomAdapterAP extends RecyclerView.Adapter<CustomAdapterAP.Custom
 
         if(d>0){
             Toast.makeText(context,data.getItemName(position)+" "+d,Toast.LENGTH_SHORT).show();
-            ProduktNaLiscie produktNaLiscie = new ProduktNaLiscie(data.getItem(position), d);
-            logic.getShoppingListBase().getItem(shoppingListIndex).addToList(produktNaLiscie);
+
+
+            ProduktWPrzepisie produktWPrzepisie = new ProduktWPrzepisie(data.getItem(position), d);
+            logic.getRecipesBase().getItem(recipeIndex).addToList(produktWPrzepisie);
             logic.save();
 
-            Intent intent = new Intent(context, EkranListy.class);
-            intent.putExtra(CustomAdapterRecipesList.recipeID ,shoppingListIndex);
+            Intent intent = new Intent(context, EkranPrzepisu.class);
+            intent.putExtra(CustomAdapterRecipesList.recipeID ,recipeIndex);
             context.startActivity(intent);
 
         }

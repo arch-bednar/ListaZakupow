@@ -106,8 +106,8 @@ public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.Custom
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            recipeNameTV = itemView.findViewById(R.id.tvAddProductName);
-            addRecipeButton = itemView.findViewById(R.id.buttonAddAP);
+            recipeNameTV = itemView.findViewById(R.id.textViewAPRName);
+            addRecipeButton = itemView.findViewById(R.id.buttonAddAPR);
 
         }
     }

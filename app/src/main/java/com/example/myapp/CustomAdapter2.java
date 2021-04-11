@@ -71,7 +71,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomAd
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tvAddProductName);
+            textView = itemView.findViewById(R.id.textViewAPRName);
             //switchSelected = itemView.findViewById(R.id.swChecked);
         }
     }

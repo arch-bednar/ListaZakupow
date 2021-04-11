@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvAddProductName"
+            android:id="@+id/textViewAPRName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/buttonAddAP"
+            android:id="@+id/buttonAddAPR"
             android:layout_width="55dp"
             android:layout_height="40dp"
             android:layout_marginEnd="16dp"
