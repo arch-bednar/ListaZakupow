@@ -16,7 +16,7 @@ import java.io.File;
 
 public class DodajPrzepis extends AppCompatActivity {
     Button back, save;
-    EditText nazwaPrzepisu1,opisPrzepisu1,numer;
+    EditText nazwaPrzepisu1,opisPrzepisu1;
     public AppLogic logic;
     private File directory;
 
@@ -47,7 +47,7 @@ public class DodajPrzepis extends AppCompatActivity {
         logic = new AppLogic(directory);
         nazwaPrzepisu1 = (EditText) findViewById(R.id.nazwaPrzepisu);
         opisPrzepisu1 = (EditText) findViewById(R.id.opisPrzepisu);
-        numer = (EditText) findViewById(R.id.editTextNumber);
+
     }
 
     private void saveNewPrzepis() {
