@@ -9,35 +9,38 @@
 
     <Button
         android:id="@+id/produkty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="30dp"
         android:text="produkty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintTop_toBottomOf="@+id/przepisy"
+        app:layout_constraintVertical_bias="0.178" />
 
     <Button
         android:id="@+id/przepisy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="256dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="40dp"
         android:text="PRZEPISY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/produkty" />
+        app:layout_constraintTop_toBottomOf="@+id/listy" />
 
     <Button
         android:id="@+id/listy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="256dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="84dp"
         android:text=" LISTY ZAKUPOW"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/przepisy" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -82,8 +82,8 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
 
     }
     private void openRecipeActivity() {
-        Intent intent =new Intent(context, EkranListy.class);
-        intent.putExtra(CustomAdapterShoppingListsScreen.recipeID, recipeIndex);
+        Intent intent =new Intent(context, EkranPrzepisu.class);
+        intent.putExtra(CustomAdapterRecipesList.recipeID, recipeIndex);
         context.startActivity(intent);
     }
     private void openRecipeProduct(int index) {
