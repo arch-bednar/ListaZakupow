@@ -64,7 +64,7 @@ public class EkranPrzepisu extends AppCompatActivity {
         //W tym RecyclerView
         recycle.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CustomAdapterRecipe(przepis,this);
+        adapter = new CustomAdapterRecipe(przepis,this, recipeIndex);
         recycle.setLayoutManager(layoutManager);
         recycle.setAdapter(adapter);
 

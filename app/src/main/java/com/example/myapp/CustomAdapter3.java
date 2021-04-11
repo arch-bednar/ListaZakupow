@@ -33,7 +33,7 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
 
     @Override
     public CustomAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_recipe,parent,false);
         return new CustomAdapterViewHolder(view);
     }
 
@@ -86,7 +86,7 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.tvAddProductName);
-            switchSelected = itemView.findViewById(R.id.swChecked);
+
         }
     }
 }

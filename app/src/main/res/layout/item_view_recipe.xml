@@ -10,6 +10,26 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/textViewItemUnit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/RecProdDel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.516" />
+
+        <TextView
+            android:id="@+id/textViewItemCount2"
+            android:layout_width="30dp"
+            android:layout_height="19dp"
+            android:text="Amount"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewItemUnit2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.483" />
+
+        <TextView
             android:id="@+id/tvAddProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,12 +43,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Switch
-            android:id="@+id/swChecked"
+        <CheckBox
+            android:id="@+id/RecProdDel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
+            android:text="DELETE"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

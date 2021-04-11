@@ -1,9 +1,11 @@
 package com.example.myapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -15,24 +17,27 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapp.logic.AppLogic;
 import com.example.myapp.logic.Przepis;
 
 public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecipe.CustomAdapterViewHolder> {
     //ArrayList<String> data;
-
+    private int recipeIndexIndex;
     Przepis data;
+    AppLogic logic;
     public static final String recipeID = "XD";
-
+    int recipeIndex;
 
     Context context;
-    public CustomAdapterRecipe(Przepis data, Context context){
+    public CustomAdapterRecipe(Przepis data, Context context, int recipeIndex){
         this.data = data;
         this.context = context;
+        this.recipeIndex = recipeIndex;
     }
 
     @Override
     public CustomAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_recipe,parent,false);
         return new CustomAdapterViewHolder(view);
     }
 
@@ -40,19 +45,9 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
     public void onBindViewHolder(@NonNull CustomAdapterViewHolder holder, final int position) {
         //holder.textView.setText(data.get(position));
         holder.textView.setText(data.getItemName(position));
-
-        holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
-                context = compoundButton.getContext();
-                if (bChecked) {
-                    //Toast.makeText(context, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    Toast.makeText(context, data.getItemName(position)+", ID: "+position, Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(context, data.getItemName(position)+"Unchecked", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+        holder.amount.setText(""+ data.getItem(position).getAmount());
+        holder.unit.setText(data.getItem(position).getUnit());
+        holder.checkBox.setChecked(data.getItem(position).isActivated());
 
 
 
@@ -64,8 +59,29 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
                 openRecipeProduct(position);
             }
         });
-    }
 
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Context contextLocal = buttonView.getContext();
+                if (isChecked) {
+                    //Toast.makeText(contextLocal, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
+                    //Toast.makeText(contextLocal, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
+                    data.removeElement(position);
+
+                }
+
+                System.out.println("Usunieto element");
+                logic.save();
+                openRecipeActivity();
+            }
+        });
+    }
+    private void openRecipeActivity() {
+        Intent intent =new Intent(context, EkranListy.class);
+        intent.putExtra(CustomAdapterShoppingListsScreen.recipeID, recipeIndex);
+        context.startActivity(intent);
+    }
     private void openRecipeProduct(int index) {
         //Intent intent = new Intent(context ,EkranPrzepisu.class);
         //intent.putExtra(recipeID, index);
@@ -79,13 +95,16 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
     }
 
     public static class CustomAdapterViewHolder extends RecyclerView.ViewHolder{
-        public TextView textView;
-        public Switch switchSelected;
+        public TextView textView, unit, amount;
+        public CheckBox checkBox;
+
 
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.tvAddProductName);
-            switchSelected = itemView.findViewById(R.id.swChecked);
+            unit = itemView.findViewById(R.id.textViewItemUnit);
+            amount = itemView.findViewById(R.id.textViewItemCount);
+            checkBox = itemView.findViewById(R.id.checkBoxItem);
         }
     }
 }

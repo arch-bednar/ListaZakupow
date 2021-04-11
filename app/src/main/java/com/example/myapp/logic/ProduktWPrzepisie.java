@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class ProduktWPrzepisie implements Serializable {
     public Produkt produkt;
     public double ilosc;
+    private boolean wybrane = false;
 
 
     public ProduktWPrzepisie(Produkt produkt, double ilosc, boolean wybrane){
@@ -21,6 +22,9 @@ public class ProduktWPrzepisie implements Serializable {
     public String toString() {
         return "Produkt: "+produkt.getName()+", jednostka: "+produkt.getUnit()+", ilosc: "+ilosc;
     }
+    public boolean isActivated(){
+        return wybrane;
+    };
 
     public double getAmount(){
         return ilosc;
@@ -28,6 +32,10 @@ public class ProduktWPrzepisie implements Serializable {
 
     public void setAmount(double a){
         ilosc = a;
+    }
+
+    public String getUnit(){
+        return produkt.getUnit();
     }
 
     public String getName() {

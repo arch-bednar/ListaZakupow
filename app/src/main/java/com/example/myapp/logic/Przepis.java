@@ -80,4 +80,17 @@ public class Przepis implements Serializable {
     public int getItemCount() {
         return index;
     }
+
+    public void removeElement(int indeks){
+        ProduktWPrzepisie[] nowaLista = new ProduktWPrzepisie[lista.length-1];
+        //Przepisanie listy
+        for(int i=0,k=0; i<lista.length; i++){
+            if (i==indeks){
+                continue;
+            }
+            nowaLista[k++] = lista[i];
+        }
+        this.lista = nowaLista;
+        this.index--;
+    }
 }
