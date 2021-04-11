@@ -22,11 +22,10 @@ import com.example.myapp.logic.Przepis;
 
 public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecipe.CustomAdapterViewHolder> {
     //ArrayList<String> data;
-    private int recipeIndexIndex;
     Przepis data;
     AppLogic logic;
     public static final String recipeID = "XD";
-    int recipeIndex;
+    private int recipeIndex;
 
     Context context;
     public CustomAdapterRecipe(Przepis data, Context context, int recipeIndex){

@@ -95,4 +95,17 @@ public class BazaPrzepisow implements Serializable {
         }
     }
 
+    public void removeElement(int indeks){
+        Przepis[] nowaLista = new Przepis[lista.length-1];
+        //Przepisanie listy
+        for(int i=0,k=0; i<lista.length; i++){
+            if (i==indeks){
+                continue;
+            }
+            nowaLista[k++] = lista[i];
+        }
+        this.lista = nowaLista;
+        this.index--;
+    }
+
 }

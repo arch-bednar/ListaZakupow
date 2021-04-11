@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -16,24 +17,33 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapp.logic.AppLogic;
 import com.example.myapp.logic.BazaPrzepisow;
+
+import com.example.myapp.logic.AppLogic;
+import com.example.myapp.logic.Przepis;
+
+import java.io.File;
 
 public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAdapterViewHolder> {
     //ArrayList<String> data;
 
     BazaPrzepisow data;
     public static final String recipeID = "XD";
-
+    AppLogic logic;
 
     Context context;
     public CustomAdapter3(BazaPrzepisow data, Context context){
         this.data = data;
         this.context = context;
+        File directory  = context.getFilesDir();
+        this.logic = new AppLogic(directory);
+
     }
 
     @Override
     public CustomAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_recipe,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_recipe_list,parent,false);
         return new CustomAdapterViewHolder(view);
     }
 
@@ -42,18 +52,7 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
         //holder.textView.setText(data.get(position));
         holder.textView.setText(data.getItemName(position));
 
-        holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
-                context = compoundButton.getContext();
-                if (bChecked) {
-                    //Toast.makeText(context, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    Toast.makeText(context, data.getItemName(position)+", ID: "+position, Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(context, data.getItemName(position)+"Unchecked", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+
 
 
 
@@ -65,8 +64,28 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
                 openRecipeActivity(position);
             }
         });
-    }
 
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Context contextLocal = buttonView.getContext();
+                if (isChecked) {
+                    //Toast.makeText(contextLocal, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
+                    //Toast.makeText(contextLocal, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
+                    data.removeElement(position);
+                    System.out.println("Usunieto element");
+                }
+
+
+                logic.save();
+                restartScreen();
+            }
+        });
+    }
+    private  void restartScreen(){
+        Intent intent = new Intent(context , EkranPrzepisow.class);
+        context.startActivity(intent);
+    }
     private void openRecipeActivity(int index) {
         Intent intent = new Intent(context ,EkranPrzepisu.class);
         intent.putExtra(recipeID, index);
@@ -81,11 +100,11 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
 
     public static class CustomAdapterViewHolder extends RecyclerView.ViewHolder{
         public TextView textView;
-        public Switch switchSelected;
-
+        public CheckBox checkBox;
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tvAddProductName);
+            textView = itemView.findViewById(R.id.textView10);
+            checkBox = itemView.findViewById(R.id.checkBoxRecDel);
 
         }
     }
