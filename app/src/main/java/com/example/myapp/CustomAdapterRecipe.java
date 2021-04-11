@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapp.logic.AppLogic;
 import com.example.myapp.logic.Przepis;
 
+import java.io.File;
+
 public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecipe.CustomAdapterViewHolder> {
     //ArrayList<String> data;
     Przepis data;
@@ -32,6 +34,9 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
         this.data = data;
         this.context = context;
         this.recipeIndex = recipeIndex;
+
+        File directory  = context.getFilesDir();
+        this.logic = new AppLogic(directory);
     }
 
     @Override
@@ -66,15 +71,17 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
                 if (isChecked) {
                     //Toast.makeText(contextLocal, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
                     //Toast.makeText(contextLocal, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
-                    data.removeElement(position);
+                    //data.removeElement(position);
+                    logic.getRecipesBase().getItem(recipeIndex).removeElement(position);
 
                 }
 
-                System.out.println("Usunieto element");
+                System.out.println("Usunieto element w przepisie");
                 logic.save();
                 openRecipeActivity();
             }
         });
+
     }
     private void openRecipeActivity() {
         Intent intent =new Intent(context, EkranListy.class);
@@ -101,9 +108,9 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.tvAddProductName);
-            unit = itemView.findViewById(R.id.textViewItemUnit);
-            amount = itemView.findViewById(R.id.textViewItemCount);
-            checkBox = itemView.findViewById(R.id.checkBoxItem);
+            unit = itemView.findViewById(R.id.textViewItemUnit2);
+            amount = itemView.findViewById(R.id.textViewItemCount2);
+            checkBox = itemView.findViewById(R.id.RecProdDel);
         }
     }
 }

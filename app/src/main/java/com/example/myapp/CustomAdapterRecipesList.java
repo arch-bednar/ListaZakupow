@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -20,12 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapp.logic.AppLogic;
 import com.example.myapp.logic.BazaPrzepisow;
 
-import com.example.myapp.logic.AppLogic;
-import com.example.myapp.logic.Przepis;
-
 import java.io.File;
 
-public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAdapterViewHolder> {
+public class CustomAdapterRecipesList extends RecyclerView.Adapter<CustomAdapterRecipesList.CustomAdapterViewHolder> {
     //ArrayList<String> data;
 
     BazaPrzepisow data;
@@ -33,7 +28,7 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
     AppLogic logic;
 
     Context context;
-    public CustomAdapter3(BazaPrzepisow data, Context context){
+    public CustomAdapterRecipesList(BazaPrzepisow data, Context context){
         this.data = data;
         this.context = context;
         File directory  = context.getFilesDir();
@@ -72,7 +67,8 @@ public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.CustomAd
                 if (isChecked) {
                     //Toast.makeText(contextLocal, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
                     //Toast.makeText(contextLocal, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
-                    data.removeElement(position);
+                    //data.removeElement(position);
+                    logic.getRecipesBase().removeElement(position);
                     System.out.println("Usunieto element");
                 }
 

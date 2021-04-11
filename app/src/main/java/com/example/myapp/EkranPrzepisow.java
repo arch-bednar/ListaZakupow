@@ -10,7 +10,6 @@ package com.example.myapp;
         import android.widget.Button;
 
         import com.example.myapp.logic.AppLogic;
-        import com.example.myapp.logic.BazaProduktow;
         import com.example.myapp.logic.BazaPrzepisow;
 
         import java.io.File;
@@ -19,7 +18,7 @@ public class EkranPrzepisow extends AppCompatActivity {
     private Button back,add;
     private RecyclerView recycle;
     private RecyclerView.LayoutManager layoutManager;
-    private CustomAdapter3 adapter;
+    private CustomAdapterRecipesList adapter;
     public AppLogic logic;
     private File directory;
 
@@ -57,7 +56,7 @@ public class EkranPrzepisow extends AppCompatActivity {
         recycle = (RecyclerView) findViewById(R.id.recycleRecipe);
         recycle.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CustomAdapter3(data,this);
+        adapter = new CustomAdapterRecipesList(data,this);
         recycle.setLayoutManager(layoutManager);
         recycle.setAdapter(adapter);
     }

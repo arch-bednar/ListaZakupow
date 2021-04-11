@@ -34,7 +34,7 @@ public class EkranPrzepisu extends AppCompatActivity {
 
         //odbieranie numeru indeksu przepisu z listy
         Intent intent = getIntent();
-        recipeIndex = (int) intent.getIntExtra(CustomAdapter3.recipeID, 0);
+        recipeIndex = (int) intent.getIntExtra(CustomAdapterRecipesList.recipeID, 0);
 
         //otwieranie bazy danych
         directory  = getFilesDir();

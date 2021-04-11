@@ -7,14 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import java.io.File;
-import java.security.spec.ECField;
 
 //package com.example.ryclerview;
 
@@ -106,7 +104,7 @@ public class CustomAdapterAP extends RecyclerView.Adapter<CustomAdapterAP.Custom
             logic.save();
 
             Intent intent = new Intent(context, EkranListy.class);
-            intent.putExtra(CustomAdapter3.recipeID ,shoppingListIndex);
+            intent.putExtra(CustomAdapterRecipesList.recipeID ,shoppingListIndex);
             context.startActivity(intent);
 
         }

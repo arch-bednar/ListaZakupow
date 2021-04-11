@@ -13,6 +13,8 @@
             android:id="@+id/textViewItemUnit2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:text="unit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/RecProdDel"
@@ -23,18 +25,20 @@
             android:id="@+id/textViewItemCount2"
             android:layout_width="30dp"
             android:layout_height="19dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:text="Amount"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewItemUnit2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.483" />
+            app:layout_constraintVertical_bias="0.516" />
 
         <TextView
             android:id="@+id/tvAddProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="TextView"
@@ -47,7 +51,6 @@
             android:id="@+id/RecProdDel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DELETE"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
