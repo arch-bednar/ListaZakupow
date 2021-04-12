@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".EkranDodawaniaProduktuDoPrzepisu"></activity>
+        <activity android:name=".EkranDodawaniaPrzepisu" />
+        <activity android:name=".EkranDodawaniaProduktu" />
+        <activity android:name=".EkranProduktuNaLiscie" />
+        <activity android:name=".EkranListy" />
+        <activity android:name=".EkranPrzepisu" />
+        <activity android:name=".DodajLista" />
+        <activity android:name=".DodajPrzepis" />
+        <activity android:name=".DodajProdukt" />
+        <activity android:name=".EkranListZakupow" />
+        <activity android:name=".EkranPrzepisow" />
+        <activity android:name=".EkranProduktow" />
+        <activity android:name=".EkranGlowny">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
