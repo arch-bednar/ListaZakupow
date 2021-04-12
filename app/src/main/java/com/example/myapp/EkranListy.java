@@ -94,7 +94,7 @@ public class EkranListy extends AppCompatActivity {
     }
 
     private void removeShoppingList(int shoppingListIndex) {
-        //remove the list
+
         logic.getShoppingListBase().remove(shoppingListIndex);
         logic.save();
 

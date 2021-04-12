@@ -45,8 +45,7 @@ public class EkranProduktow extends AppCompatActivity {
 
         recyclexd = (RecyclerView) findViewById(R.id.recycleXD);
 
-        //Intent intent = getIntent();
-        //logic = (AppLogic) intent.getSerializableExtra(EkranGlowny.LOGIKA);
+
 
         directory  = getFilesDir();
         logic = new AppLogic(directory);
@@ -55,14 +54,7 @@ public class EkranProduktow extends AppCompatActivity {
 
         BazaProduktow data = logic.getProductBase();
 
-        /*
-        ArrayList<String> data = new ArrayList<>();
-        data.add("raz");
-        data.add("dwa");
-        data.add("trzy");
-        data.add("cztery");
-        data.add("piec");
-        data.add("szesc"); */
+
 
         recyclexd.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);

@@ -24,11 +24,7 @@ public class EkranGlowny extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         directory  = getFilesDir();
         logic = new AppLogic(directory);
-        //System.out.println("Ekran Główny");
-        //logic.getProductBase().printOut();
 
-        //TODO: startBase() jest tylko do inicjacji przykładowych danych na bazie
-        //startBase();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

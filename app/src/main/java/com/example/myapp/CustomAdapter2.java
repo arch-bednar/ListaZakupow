@@ -33,22 +33,10 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomAd
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapterViewHolder holder, final int position) {
-        //holder.textView.setText(data.get(position));
+
         holder.textView.setText(data.getItemName(position));
 
-        /*
-        holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
-                context = compoundButton.getContext();
-                if (bChecked) {
-                    //Toast.makeText(context, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    Toast.makeText(context, data.getItemName(position)+", ID: "+position, Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(context, data.getItemName(position)+"Unchecked", Toast.LENGTH_LONG).show();
-                }
-            }
-        }); */
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +49,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomAd
 
     @Override
     public int getItemCount() {
-        //return data.size();
+
         return data.getItemCount();
     }
 
@@ -72,7 +60,7 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.CustomAd
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textViewAPRName);
-            //switchSelected = itemView.findViewById(R.id.swChecked);
+
         }
     }
 }

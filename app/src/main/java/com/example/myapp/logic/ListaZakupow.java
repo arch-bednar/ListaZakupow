@@ -118,9 +118,7 @@ public class ListaZakupow implements Serializable {
         }
     }
 
-    public void addPrzepis2(Przepis obj){
 
-    }
 
     private  void removeElement(int indeks){
         ProduktNaLiscie[] nowaLista = new ProduktNaLiscie[lista.length-1];

@@ -86,6 +86,6 @@ public class BazaProduktow implements Serializable {
     public String getItemName(int position) {
 
         return getItem(position).getName();
-        //return "XD";
+
     }
 }

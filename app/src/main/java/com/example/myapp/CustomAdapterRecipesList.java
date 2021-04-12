@@ -54,8 +54,7 @@ public class CustomAdapterRecipesList extends RecyclerView.Adapter<CustomAdapter
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
-                //Toast.makeText(context,"XDDDD: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
+
                 openRecipeActivity(position);
             }
         });
@@ -65,9 +64,7 @@ public class CustomAdapterRecipesList extends RecyclerView.Adapter<CustomAdapter
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Context contextLocal = buttonView.getContext();
                 if (isChecked) {
-                    //Toast.makeText(contextLocal, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    //Toast.makeText(contextLocal, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
-                    //data.removeElement(position);
+
                     logic.getRecipesBase().removeElement(position);
                     System.out.println("Usunieto element");
                 }
@@ -90,7 +87,7 @@ public class CustomAdapterRecipesList extends RecyclerView.Adapter<CustomAdapter
 
     @Override
     public int getItemCount() {
-        //return data.size();
+
         return data.getItemCount();
     }
 

@@ -37,30 +37,16 @@ public class CustomAdapterShoppingListsScreen extends RecyclerView.Adapter<Custo
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapterViewHolder holder, final int position) {
-        //holder.textView.setText(data.get(position));
+
         holder.textView.setText(data.getItem(position).getDescription());
 
-        /*
-        holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
-                context = compoundButton.getContext();
-                if (bChecked) {
-                    //Toast.makeText(context, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    Toast.makeText(context, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(context, data.getItem(position).getDescription()+"Unchecked", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        */
+
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
-                //Toast.makeText(context,"XDDDD: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
+
                 openShoppingListActivity(position);
             }
         });
@@ -87,7 +73,7 @@ public class CustomAdapterShoppingListsScreen extends RecyclerView.Adapter<Custo
         public CustomAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textViewAPRName);
-            //switchSelected = itemView.findViewById(R.id.swChecked);
+
         }
     }
 }

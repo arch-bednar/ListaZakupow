@@ -33,17 +33,7 @@ public class Przepis implements Serializable {
     }
 
     public void addToList(ProduktWPrzepisie obj){
-        /*
-        //TODO: NAPRAWIĆ DUPLIKATY
-        if(index < lista.length){
-            lista[index] = obj;
-            index++;
-        }else{
-            increaseListSize();
-            System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :"+lista.length);
-            lista[index] = obj;
-            index++;
-        } */
+
 
         boolean flagaDuplikatu = false;
 
@@ -90,7 +80,6 @@ public class Przepis implements Serializable {
     private void increaseListSize() {
         ProduktWPrzepisie[] nowaLista = new ProduktWPrzepisie[lista.length + sizeIncrease];
 
-        //TODO: Replace manual array copy
         //Przepisanie listy
         for(int i=0; i<lista.length; i++){
             nowaLista[i] = lista[i];

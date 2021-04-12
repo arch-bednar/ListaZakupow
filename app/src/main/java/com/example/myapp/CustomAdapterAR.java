@@ -56,20 +56,7 @@ public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.Custom
             }
         });
 
-        /*
-        holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
-                context = compoundButton.getContext();
-                if (bChecked) {
-                    //Toast.makeText(context, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    Toast.makeText(context, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(context, data.getItem(position).getDescription()+"Unchecked", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        */
+
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +65,7 @@ public class CustomAdapterAR extends RecyclerView.Adapter<CustomAdapterAR.Custom
 
                 Toast.makeText(context,"Pokaż zawartość przepisu: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
 
-                //openProductOnListActivity(position);
+
             }
         });
     }

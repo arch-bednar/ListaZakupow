@@ -56,32 +56,18 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
         holder.unit.setText(data.getItem(position).getUnit());
         holder.checkBox.setChecked(data.getItem(position).isActivated());
 
-        /*
-        holder.switchSelected.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
-                context = compoundButton.getContext();
-                if (bChecked) {
-                    //Toast.makeText(context, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    Toast.makeText(context, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(context, data.getItem(position).getDescription()+"Unchecked", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        */
+
 
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Context contextLocal = buttonView.getContext();
                 if (isChecked) {
-                    //Toast.makeText(contextLocal, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    //Toast.makeText(contextLocal, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
+
                     data.getItem(position).setChecked(true);
 
                 } else {
-                    //Toast.makeText(contextLocal, data.getItem(position).getDescription()+"Unchecked", Toast.LENGTH_LONG).show();
+
                     data.getItem(position).setChecked(false);
                 }
 
@@ -95,8 +81,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
-                //Toast.makeText(context,"XDDDD: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
+
 
                 openProductOnListActivity(position);
             }
@@ -119,7 +104,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
     @Override
 
     public int getItemCount() {
-        //return data.size();
+
         return data.getItemCount();
     }
 
@@ -134,7 +119,7 @@ public class CustomAdapterListScreen extends RecyclerView.Adapter<CustomAdapterL
             unit = itemView.findViewById(R.id.textViewItemUnit);
             amount = itemView.findViewById(R.id.textViewItemCount);
             checkBox = itemView.findViewById(R.id.checkBoxItem);
-            //switchSelected = itemView.findViewById(R.id.swChecked);
+
         }
     }
 }

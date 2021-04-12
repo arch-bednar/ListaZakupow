@@ -56,9 +56,8 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
-                //Toast.makeText(context,"XDDDD: "+data.getItemName(position),Toast.LENGTH_SHORT).show();
-                openRecipeProduct(position);
+
+
             }
         });
 
@@ -67,9 +66,7 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Context contextLocal = buttonView.getContext();
                 if (isChecked) {
-                    //Toast.makeText(contextLocal, data.get(position)+", ID: "+position, Toast.LENGTH_LONG).show(); //position to index RecycleView a nie samej listy
-                    //Toast.makeText(contextLocal, data.getItem(position).getDescription()+", ID: "+position, Toast.LENGTH_LONG).show();
-                    //data.removeElement(position);
+
                     logic.getRecipesBase().getItem(recipeIndex).removeElement(position);
 
                 }
@@ -86,11 +83,7 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
         intent.putExtra(CustomAdapterRecipesList.recipeID, recipeIndex);
         context.startActivity(intent);
     }
-    private void openRecipeProduct(int index) {
-        //Intent intent = new Intent(context ,EkranPrzepisu.class);
-        //intent.putExtra(recipeID, index);
-        //context.startActivity(intent);
-    }
+
 
     @Override
     public int getItemCount() {
