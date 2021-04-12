@@ -111,10 +111,16 @@ public class ListaZakupow implements Serializable {
                     System.out.println("Dopisano produkt do listy ZAKUPÓW! " + getDescription());
                 } else {
                     System.out.println("Produkt znajduje się już na liście ZAKUPÓW!");
+                    flagaDuplikatu = false;
                 }
+
             }
 
         }
+    }
+
+    public void addPrzepis2(Przepis obj){
+
     }
 
     private  void removeElement(int indeks){
