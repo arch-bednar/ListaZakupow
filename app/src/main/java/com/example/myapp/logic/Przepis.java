@@ -33,6 +33,7 @@ public class Przepis implements Serializable {
     }
 
     public void addToList(ProduktWPrzepisie obj){
+        /*
         //TODO: NAPRAWIĆ DUPLIKATY
         if(index < lista.length){
             lista[index] = obj;
@@ -42,6 +43,34 @@ public class Przepis implements Serializable {
             System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :"+lista.length);
             lista[index] = obj;
             index++;
+        } */
+
+        boolean flagaDuplikatu = false;
+
+        for(int i=0; i<getLength(); i++){
+            if(lista[i] != null){
+                if(lista[i].getName().equals(obj.getName())){
+                    flagaDuplikatu = true;
+                    lista[i].setAmount(lista[i].getAmount() + obj.getAmount());
+                    i=getLength();
+                }
+            }
+        }
+
+        if(!flagaDuplikatu){
+            if(index < lista.length){
+                lista[index] = obj;
+                index++;
+            }else{
+                increaseListSize();
+                System.out.println("ZWIĘKSZONO ROZMIAR LISTY! :"+lista.length);
+                lista[index] = obj;
+                index++;
+            }
+            System.out.println("Dopisano produkt do listy! "+obj.getName());
+        }else{
+            System.out.println("Produkt znajduje się już na liście!");
+
         }
 
     }

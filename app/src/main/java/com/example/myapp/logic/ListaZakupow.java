@@ -31,7 +31,6 @@ public class ListaZakupow implements Serializable {
     }
 
     public void addToList(ProduktNaLiscie obj){
-        //TODO: Sprawdzanie czy obiekt już jest na liście
         boolean flagaDuplikatu = false;
 
         for(int i=0; i<getLength(); i++){

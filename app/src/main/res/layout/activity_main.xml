@@ -11,14 +11,12 @@
         android:id="@+id/produkty"
         android:layout_width="250dp"
         android:layout_height="64dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:text="produkty"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/przepisy"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintTop_toBottomOf="@+id/przepisy" />
 
     <Button
         android:id="@+id/przepisy"
@@ -35,7 +33,7 @@
         android:id="@+id/listy"
         android:layout_width="256dp"
         android:layout_height="200dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="32dp"
         android:text=" LISTY ZAKUPOW"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
