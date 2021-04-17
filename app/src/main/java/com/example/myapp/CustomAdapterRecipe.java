@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -25,6 +26,7 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
     Przepis data;
     AppLogic logic;
     public static final String recipeID = "XD";
+    public static final String recipeItemID = "recipeItemID";
     private int recipeIndex;
 
     Context context;
@@ -51,16 +53,6 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
         holder.unit.setText(data.getItem(position).getUnit());
         holder.checkBox.setChecked(data.getItem(position).isActivated());
 
-
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
-
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -77,7 +69,26 @@ public class CustomAdapterRecipe extends RecyclerView.Adapter<CustomAdapterRecip
             }
         });
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editRecipeItem(position);
+            }
+        });
+
     }
+
+    private void editRecipeItem(int itemIndex) {
+        String przepis = logic.getRecipesBase().getItem(recipeIndex).getDescription();
+        String produkt = logic.getRecipesBase().getItem(recipeIndex).getItem(itemIndex).getName();
+        Toast.makeText(context, przepis+": "+produkt, Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(context, EkranPrzepisuEdycjaProduktu.class);
+        intent.putExtra(CustomAdapterRecipesList.recipeID, recipeIndex);
+        intent.putExtra(CustomAdapterRecipe.recipeItemID, itemIndex);
+        context.startActivity(intent);
+    }
+
     private void openRecipeActivity() {
         Intent intent =new Intent(context, EkranPrzepisu.class);
         intent.putExtra(CustomAdapterRecipesList.recipeID, recipeIndex);

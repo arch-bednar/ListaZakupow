@@ -84,13 +84,6 @@ public class EkranListy extends AppCompatActivity {
         adapter = new CustomAdapterListScreen(shoppingListIndex,this);
         recycle.setLayoutManager(layoutManager);
         recycle.setAdapter(adapter);
-
-
-
-
-
-
-
     }
 
     private void removeShoppingList(int shoppingListIndex) {
