@@ -40,8 +40,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleXD"
-        android:layout_width="307dp"
-        android:layout_height="292dp"
+        android:layout_width="349dp"
+        android:layout_height="518dp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

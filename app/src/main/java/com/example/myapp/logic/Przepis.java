@@ -20,9 +20,14 @@ public class Przepis implements Serializable {
         this.nazwa = nazwa;
     }
 
-    public void setDescripion(String desc){
-        this.opis=desc;
+    public String getRecipe(){
+        return opis;
     }
+
+    public void setRecipe(String recipe){
+        this.opis = recipe;
+    }
+
 
     public String getDescription(){
         return this.nazwa;

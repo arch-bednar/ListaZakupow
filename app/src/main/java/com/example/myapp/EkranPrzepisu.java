@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +29,7 @@ public class EkranPrzepisu extends AppCompatActivity {
     private RecyclerView recycle;
     private RecyclerView.LayoutManager layoutManager;
     private CustomAdapterRecipe adapter;
+    private EditText multiLine;
 
 
     @Override
@@ -49,6 +53,7 @@ public class EkranPrzepisu extends AppCompatActivity {
         backToRecipesButton = findViewById(R.id.backToRecipesList);
         addProductToRecipeButton = findViewById(R.id.addRecipeProduct);
         recycle = findViewById(R.id.recyclerOneRecipe);
+        multiLine = findViewById(R.id.recipeMultiLine);
 
         //obsługa interfejsu
         textViewNazwaPrzepisu.setText(przepis.getName());
@@ -56,6 +61,25 @@ public class EkranPrzepisu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openRecipesListActivity();
+            }
+        });
+
+        multiLine.setText(logic.getRecipesBase().getItem(recipeIndex).getRecipe());
+        multiLine.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //System.out.println("\n\n\n\nPRZED EDYCJĄ");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //System.out.println("\n\n\n\nW TRAKCIE EDYCJI");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                logic.getRecipesBase().getItem(recipeIndex).setRecipe( multiLine.getText().toString());
+                logic.save();
             }
         });
         addProductToRecipeButton.setOnClickListener(new View.OnClickListener() {
