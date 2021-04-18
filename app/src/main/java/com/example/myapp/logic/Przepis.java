@@ -116,4 +116,11 @@ public class Przepis implements Serializable {
         this.lista = nowaLista;
         this.index--;
     }
+    public void removeElementName(String name){
+        for (int i=0;i<getLength();i++){
+            if (lista[i].getName().equals(name)){
+                removeElement(i);
+            }
+        }
+    }
 }

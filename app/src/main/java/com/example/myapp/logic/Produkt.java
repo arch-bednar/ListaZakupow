@@ -42,4 +42,6 @@ public class Produkt implements Serializable {
     }
     
     public String toString() {return nazwa;}
+
+
 }

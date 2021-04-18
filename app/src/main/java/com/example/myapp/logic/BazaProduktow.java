@@ -41,6 +41,7 @@ public class BazaProduktow implements Serializable {
             System.out.println("Plik o nazwie "+obj.getName()+" już znajduje się w Bazie Produktów!");
         }
     }
+    public int getIndex(){return  index;}
 
     public int getLength(){
         return lista.length;
@@ -88,4 +89,43 @@ public class BazaProduktow implements Serializable {
         return getItem(position).getName();
 
     }
+    public  void removeElement(int indeks){
+        Produkt[] nowaLista = new Produkt[lista.length-1];
+        //Przepisanie listy
+        for(int i=0,k=0; i<lista.length; i++){
+            if (i==indeks){
+                continue;
+            }
+            nowaLista[k++] = lista[i];
+        }
+        this.lista = nowaLista;
+        this.itemCount--;
+        this.index--;
+    }
+    public void remove(AppLogic logic,int indeks) {
+        BazaProduktow produkty = logic.getProductBase();
+        String name = produkty.getItemName(indeks);
+        BazaListZakupow listy = logic.getShoppingListBase();
+        try {
+            for (int i = 0; i < listy.getLength(); i++) {
+                listy.getItem(i).removeElementName(name);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        BazaPrzepisow przepisy = logic.getRecipesBase();
+        try {
+            if (przepisy.getLength() > 0) {
+                for (int i = 0; i < przepisy.getLength(); i++) {
+                    przepisy.getItem(i).removeElementName(name);
+                }
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        produkty.removeElement(indeks);
+    }
 }
+

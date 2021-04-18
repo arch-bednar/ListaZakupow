@@ -72,4 +72,5 @@ public class EkranProduktow extends AppCompatActivity {
         Intent intent = new Intent(this, EkranGlowny.class);
         startActivity(intent);
     }
+
 }

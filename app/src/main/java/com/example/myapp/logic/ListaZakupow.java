@@ -133,14 +133,20 @@ public class ListaZakupow implements Serializable {
         this.index--;
     }
 
+    public void removeElementName(String name){
+        for (int i=0;i<getLength();i++){
+            if (lista[i].getDescription().equals(name)){
+                removeElement(i);
+            }
+        }
+    }
+
     public void koniecZakupow(){
         System.out.println(this.index);
         int i =0;
         while (i < this.index){
-            System.out.println("GFFFADFSAFAFA");
             System.out.println(lista[i].isActivated());
             if (lista[i].isActivated()){
-                System.out.println("FFFADFSAFAFA");
                     removeElement(i);
 
             }

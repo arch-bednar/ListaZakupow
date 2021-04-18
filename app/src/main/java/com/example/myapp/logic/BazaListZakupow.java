@@ -91,12 +91,11 @@ public class BazaListZakupow implements Serializable {
     public void remove(int shoppingListIndex) {
         lista[shoppingListIndex] = null; //niepotrzebne, jedynie informacyjnie jest zostawione
 
-        for(int i=shoppingListIndex+1; i<=index; i++){
-            try{
-            lista[i-1] = lista[i];
-            }
-            catch (Exception e) {
-            System.out.println(e);
+        for (int i = shoppingListIndex + 1; i <= index; i++) {
+            try {
+                lista[i - 1] = lista[i];
+            } catch (Exception e) {
+                System.out.println(e);
             }
         }
 

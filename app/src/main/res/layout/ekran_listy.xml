@@ -29,19 +29,19 @@
         android:id="@+id/backFromList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="24dp"
         android:text="BACK"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/addRecipeToList" />
 
     <Button
         android:id="@+id/addProductToList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="24dp"
         android:text="ADD PRODUCT"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,13 +51,12 @@
         android:id="@+id/addRecipeToList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="24dp"
         android:text="ADD RECIPE"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addProductToList"
-        app:layout_constraintStart_toEndOf="@+id/backFromList" />
+        app:layout_constraintEnd_toStartOf="@+id/addProductToList" />
 
     <Button
         android:id="@+id/buttonRemoveList"
@@ -74,8 +73,9 @@
         android:id="@+id/koniec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="16dp"
         android:text="END"
         app:layout_constraintBottom_toTopOf="@+id/backFromList"
         app:layout_constraintStart_toStartOf="parent" />
